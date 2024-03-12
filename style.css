@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;1,9..40,500&family=Inconsolata:wdth,wght@98.3,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+body{
+    overflow-x: hidden;
+}
 
 header {
     display: flex;
@@ -7,31 +15,55 @@ header {
     align-items: center;
     height: 100svh;
     background-color: lightpink;
-    background: linear-gradient(45deg, #9279a3, #9d77b6, #af7299,  #FF80AA, #FF7485, #e27070, #FF334C, #da0921);
+    background: linear-gradient(45deg, #7c2580, rgb(159, 85, 173), #b472c2, #dd88be,#ff80aa, #ff6d7e, #ff8a54, #ff7839, #ff5420, #ff2841, #da0921);
 }
 
 header h1 {
     font-size:1000%;
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: italic;
     font-style: normal;
-    color: #fff;
-    text-shadow: 20px #bdbcbc;
+    color: white; 
+    text-shadow: #868686 4px 5px 4px;
+    line-height: 2px;
+    margin: 5%;
 }
 
 header p.one{
-    font-size: 260%;
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 800;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 200%;
     font-style: normal;
     color: #fff;
+    letter-spacing: 5px;
 }
 
-header p{
-    font-size: 190%;
-    font-family: "Old Standard TT", serif;
+header p.two{
+    font-family: "Crimson Text", serif;
     font-weight: 400;
-    font-style: italic;
-    color: #fff;
+    font-style: normal;
+    font-size: 200%;
+    color: white;
+    line-height: 2px;
+    margin: 0 0 10%
+}
+
+header button{
+    border: none;
+    width: 10%;
+    height: 5%;
+    font-size: 150%;
+    color:#623E2A;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 5px;
+}
+
+header button:hover{
+    color:#915332;
+    background-color:#cfc9c9;
+    cursor:pointer;
+    transition: ease-in-out .5s;
 }
