@@ -5,7 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
 body{
-    overflow-x: hidden;
+    margin: 0;
+    user-select:none;
 }
 
 header {
@@ -13,7 +14,7 @@ header {
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    height: 100svh;
+    height: 87svh;
     background-color: lightpink;
     background: linear-gradient(45deg, #7c2580, rgb(159, 85, 173), #b472c2, #dd88be,#ff80aa, #ff6d7e, #ff8a54, #ff7839, #ff5420, #ff2841, #da0921);
 }
@@ -46,7 +47,7 @@ header p.two{
     font-size: 200%;
     color: white;
     line-height: 2px;
-    margin: 0 0 10%
+    margin: 2.5% 0 10%
 }
 
 header button{
@@ -67,3 +68,96 @@ header button:hover{
     cursor:pointer;
     transition: ease-in-out .5s;
 }
+
+nav {
+    margin: 1% 5% 1% 5%;
+    background: var(--nav-background);
+    border: var(--nav-border);
+    border-radius: 5px;
+    margin-bottom: 1em;
+    font-size: 1.5rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 10;
+  }
+  
+  nav li{
+    border-radius: 5px;
+  }
+  
+  nav :is(ul, li) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+  }
+  
+  nav ul li {
+    padding: .5em;
+    transition: .3s;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  nav ul li:hover {
+    background-color: rgba(255, 255, 255, .5);
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav a:active {
+    color: yellowgreen;
+  }
+  
+  nav a:visited {
+    color: red;
+  }
+  
+  nav > ul > li {
+    position: relative;
+  }
+  
+  nav > ul > li > ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(226, 216, 216);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    font-size: 1.2rem;
+    border: 1.5px solid;
+  }
+  
+  nav > ul > li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav > ul > li > ul > li {
+    display: block;
+  }
+  
+  nav > .logo {
+    height: 5rem;
+    margin: .5%;
+  }
+
+  nav li:hover{
+    color: rgb(197, 61, 197);
+  }
+
+  section.sec1{
+    margin: 10%;
+  }
+
+  section h2{
+    font-size: 200%;
+    text-align: center;
+  }
