@@ -3,10 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 body{
     margin: 0;
     user-select:none;
+    text-align: justify;
+    text-indent: 25px;
 }
 
 header {
@@ -153,11 +156,94 @@ nav {
     color: rgb(197, 61, 197);
   }
 
-  section.sec1{
-    margin: 10%;
-  }
 
-  section h2{
-    font-size: 200%;
-    text-align: center;
-  }
+  form {
+    font-family: Verdana,Tahoma,sans-serif;
+    font-size: 15px;
+    background-color: #d17556;
+    max-width: 500px;
+    padding: 3%;
+    margin
+    
+}
+
+form.meu_form{
+  
+}
+
+h1 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #000000;
+}
+
+input, textarea {
+    width: 200px;
+    padding: 10px;
+    color: black;
+    margin-left: 20px;
+    margin-top: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+}
+
+.enviar {
+    background-color: #66FFFF;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+    color: black;
+}
+
+textarea {
+    width: 400px;
+    height: 120px;
+    line-height: 20px;
+    max-width: 400px;
+}
+
+form label {
+    margin-left: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+
+body h2 {
+  font-size:400%;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 100;
+  color: rgb(145, 112, 112); 
+  text-shadow: #493131 2px 3.5px 2px;
+  line-height: 1.5px;
+  margin: 5%;
+  text-align: center;
+}
+
+body section p{
+  margin: 0.5% 12% 0.5% 12%;
+  color: rgb(88, 58, 58);
+}
+
+body section.sec1 {
+  margin: 0;
+  background: #e5bdff;
+}
+body section.sec2 {
+  margin: 0;
+  background: #FF80AA;
+}
+body section.sec3 {
+  margin: 0;
+  background: #ff5a6d;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
