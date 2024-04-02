@@ -5,10 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 body{
     margin: 0;
     user-select:none;
-    text-align: justify;
+    text-align: center;
     text-indent: 25px;
 }
 
@@ -157,18 +161,29 @@ nav {
   }
 
 
+  section.sec4{
+    display: flex;
+    justify-content: center;
+  }
+  
   form {
     font-family: Verdana,Tahoma,sans-serif;
     font-size: 15px;
-    background-color: #d17556;
-    max-width: 500px;
-    padding: 3%;
-    margin
-    
-}
+    background-color: #e9cec5;
+    max-width: 100%;
+    margin: 5%;
+    padding: 5% 15%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(167, 166, 166);
+    border-radius: 2%;
+  }
 
-form.meu_form{
-  
+form.meu_form {
+  margin: 10px;
+}
+.sec4 h2{
+  margin: 5px 5px 30px 5px;
 }
 
 h1 {
@@ -178,18 +193,18 @@ h1 {
 }
 
 input, textarea {
-    width: 200px;
-    padding: 10px;
+    padding: 5% 20%;
     color: black;
-    margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border: 1px solid;
+    font-family: "Crimson Text", serif;
 }
 
-.enviar {
-    background-color: #66FFFF;
+input.EnviarMensagem {
+    box-sizing: border-box;
+    background-color: #b385b9;
     height: 40px;
     width: 100px;
     font-weight: bold;
@@ -201,10 +216,12 @@ input, textarea {
 }
 
 textarea {
-    width: 400px;
-    height: 120px;
+    height: 5%;
     line-height: 20px;
     max-width: 400px;
+    cursor: text;
+    overflow: hidden;
+    flex-grow: 1;
 }
 
 form label {
@@ -215,32 +232,34 @@ form label {
 
 
 body h2 {
-  font-size:400%;
+  font-size:350%;
   font-family: "Roboto Mono", monospace;
-  font-weight: 100;
-  color: rgb(145, 112, 112); 
-  text-shadow: #493131 2px 3.5px 2px;
-  line-height: 1.5px;
+  color: rgb(255, 255, 255); 
+  text-shadow: #523e3e 2px 3.5px 2px;
+  line-height: 1.2px;
   margin: 5%;
   text-align: center;
 }
 
 body section p{
   margin: 0.5% 12% 0.5% 12%;
-  color: rgb(88, 58, 58);
+  color: rgb(105, 87, 87);
 }
 
 body section.sec1 {
   margin: 0;
-  background: #e5bdff;
+  background: #f3c4ff;
+  padding: 2% 5% 5% 5%;
 }
 body section.sec2 {
   margin: 0;
   background: #FF80AA;
+  padding: 2% 5% 5% 5%;
 }
 body section.sec3 {
   margin: 0;
-  background: #ff5a6d;
+  background: #ff7989;
+  padding: 2% 5% 5% 5%;
 }
 
 main {
