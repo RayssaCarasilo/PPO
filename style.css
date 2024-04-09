@@ -21,7 +21,7 @@ header {
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    height: 87svh;
+    height: 89svh;
     background-color: lightpink;
     background: linear-gradient(45deg, #7c2580, rgb(159, 85, 173), #b472c2, #dd88be,#ff80aa, #ff6d7e, #ff8a54, #ff7839, #ff5420, #ff2841, #da0921);
 }
@@ -57,7 +57,7 @@ header p.two{
     margin: 2.5% 0 10%
 }
 
-header button{
+header button.denuncia{
     border: none;
     width: 10%;
     height: 5%;
@@ -69,7 +69,7 @@ header button{
     letter-spacing: 5px;
 }
 
-header button:hover{
+header button.denuncia:hover{
     color:#915332;
     background-color:#cfc9c9;
     cursor:pointer;
@@ -77,6 +77,10 @@ header button:hover{
 }
 
 nav {
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    z-index: 1;
     margin: 1% 5% 1% 5%;
     background: var(--nav-background);
     border: var(--nav-border);
@@ -109,21 +113,13 @@ nav {
     margin: 10px;
   }
   
-  nav ul li:hover {
-    background-color: rgba(255, 255, 255, .5);
-  }
-  
   nav a {
-    color: white;
+    color: black;
     text-decoration: none;
   }
   
   nav a:active {
-    color: yellowgreen;
-  }
-  
-  nav a:visited {
-    color: red;
+    color: pink;
   }
   
   nav > ul > li {
@@ -156,7 +152,7 @@ nav {
     margin: .5%;
   }
 
-  nav li:hover{
+  nav li a:hover{
     color: rgb(197, 61, 197);
   }
 
@@ -200,6 +196,7 @@ input, textarea {
     -moz-border-radius: 5px;
     border: 1px solid;
     font-family: "Crimson Text", serif;
+    cursor: text;
 }
 
 input.EnviarMensagem {
@@ -213,6 +210,7 @@ input.EnviarMensagem {
     -moz-border-radius: 5px;
     border: 1px solid;
     color: black;
+    cursor: pointer;
 }
 
 textarea {
