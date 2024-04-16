@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
+html {
+  scroll-behavior: smooth;
+  scroll-margin-top: smooth;
+}
 * {
   box-sizing: border-box;
 }
@@ -21,7 +25,7 @@ header {
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    height: 89svh;
+    height: 100svh;
     background-color: lightpink;
     background: linear-gradient(45deg, #7c2580, rgb(159, 85, 173), #b472c2, #dd88be,#ff80aa, #ff6d7e, #ff8a54, #ff7839, #ff5420, #ff2841, #da0921);
 }
@@ -77,15 +81,12 @@ header button.denuncia:hover{
 }
 
 nav {
-    position: sticky;
+    position: fixed;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
     top: 0px;
-    background-color: white;
     z-index: 1;
-    margin: 1% 5% 1% 5%;
-    background: var(--nav-background);
-    border: var(--nav-border);
-    border-radius: 5px;
-    margin-bottom: 1em;
     font-size: 1.5rem; 
     display: flex;
     justify-content: space-between;
@@ -93,11 +94,7 @@ nav {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 10;
   }
-  
-  nav li{
-    border-radius: 5px;
-  }
-  
+
   nav :is(ul, li) {
     margin: 0;
     padding: 0;
@@ -111,6 +108,10 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     margin: 10px;
+  }
+
+  nav > ul{
+    margin-left: 20px;
   }
   
   nav a {
