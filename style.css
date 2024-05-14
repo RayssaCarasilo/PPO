@@ -4,6 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root{
+  --cor-primaria: #44145a;
+}
 
 html {
   scroll-behavior: smooth;
@@ -26,9 +31,8 @@ header {
     justify-content: center;
     align-items: center;
     height: 100svh;
-    background-color: lightpink;
-    background: linear-gradient(45deg, #7c2580, rgb(159, 85, 173), #b472c2, #dd88be,#ff80aa, #ff6d7e, #ff8a54, #ff7839, #ff5420, #ff2841, #da0921);
-}
+    background-image: url("imgs/banner.png");
+  }
 
 header h1 {
     font-size:1000%;
@@ -83,7 +87,7 @@ header button.denuncia:hover{
 
 nav {
     position: fixed;
-    background-color: #ffffff;
+    background-color:var(--cor-primaria);
     padding: 10px;
     width: 100%;
     z-index: 1;
@@ -116,7 +120,7 @@ nav {
   }
   
   nav a {
-    color: black;
+    color: rgb(253, 252, 252);
     text-decoration: none;
   }
   
@@ -155,13 +159,14 @@ nav {
   }
 
   nav li a:hover{
-    color: rgb(197, 61, 197);
+    color: rgb(240, 190, 53);
   }
 
 
   section.sec4{
     display: flex;
     justify-content: center;
+    background-image: url("imgs/mulheresfelizes.png")
   }
   
   form {
@@ -244,29 +249,29 @@ body h2 {
 
 body section p{
   margin: 0.5% 12% 0.5% 12%;
-  color: rgb(105, 87, 87);
+  color: #D8C7FF;
+  font-family: "Quicksand", sans-serif;
 }
 
 body section.sec1 {
   margin: 0;
-  background: #f3c4ff;
+  background: var(--cor-primaria);
   padding: 2% 5% 5% 5%;
 }
 body section.sec2 {
   margin: 0;
-  background: #FF80AA;
+  background: #651f9e;
   padding: 2% 5% 5% 5%;
 }
 body section.sec3 {
   margin: 0;
-  background: #ff7989;
+  background: #7220b4;
   padding: 2% 5% 5% 5%;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  background-size:
 }
 
 .seccenter{
@@ -380,4 +385,35 @@ main {
 
 #radio4:checked ~ .navigation-auto .auto-btn4{
   background-color: #fff;
+}
+
+.id-img{
+  display: flex;
+  justify-content: space-between;
+}
+
+.id-imgs-ni{
+  border: 4px solid #D8C7FF;
+  padding: 1%;
+  border-radius: 20px;
+  width: 26%;
+}
+
+.id-imgs-ray{
+  margin-left: 24%;
+  width: 21%;
+  padding: 1%;
+  border-radius: 20px;
+  border: 4px solid #D8C7FF;
+}
+
+.row{
+  display: flex;
+  height: 88%;
+  align-items: center;
+}
+
+.col{
+  flex-basis: 50%;
+  
 }
