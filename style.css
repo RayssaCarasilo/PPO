@@ -31,39 +31,8 @@ header {
     justify-content: center;
     align-items: center;
     height: 100svh;
-    background-image: url("imgs/banner.png");
-  }
-
-header h1 {
-    font-size:1000%;
-    font-family: "DM Serif Display", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-style: normal;
-    color: white; 
-    text-shadow: #868686 4px 5px 4px;
-    line-height: 2px;
-    margin: 5%;
-}
-
-header p.one{
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-size: 200%;
-    font-style: normal;
-    color: #fff;
-    letter-spacing: 5px;
-}
-
-header p.two{
-    font-family: "Crimson Text", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 200%;
-    color: white;
-    line-height: 2px;
-    margin: 2.5% 0 10%
-}
+    background-image: url("imgs/ppo.png");
+  } 
 
 header button.denuncia{
     border: none;
@@ -88,7 +57,7 @@ header button.denuncia:hover{
 nav {
     position: fixed;
     background-color:var(--cor-primaria);
-    padding: 10px;
+    padding: 5px;
     width: 100%;
     z-index: 1;
     font-size: 1.5rem; 
@@ -97,7 +66,7 @@ nav {
     align-items: center;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 10;
-    height: 15vh;
+    height: 10vh;
   }
 
   nav :is(ul, li) {
@@ -189,11 +158,6 @@ form.meu_form {
   margin: 5px 5px 30px 5px;
 }
 
-h1 {
-    margin-bottom: 20px;
-    margin-left: 20px;
-    color: #000000;
-}
 
 input, textarea {
     padding: 5% 20%;
@@ -248,7 +212,6 @@ body h2 {
 }
 
 body section p{
-  margin: 0.5% 12% 0.5% 12%;
   color: #D8C7FF;
   font-family: "Quicksand", sans-serif;
 }
@@ -387,24 +350,31 @@ main {
   background-color: #fff;
 }
 
-.id-img{
+.test{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
 }
 
-.id-imgs-ni{
-  border: 4px solid #D8C7FF;
-  padding: 1%;
-  border-radius: 20px;
-  width: 26%;
+.container{
+  display:flex;
 }
 
-.id-imgs-ray{
-  margin-left: 24%;
-  width: 21%;
-  padding: 1%;
-  border-radius: 20px;
-  border: 4px solid #D8C7FF;
+.card{
+  height: 500px;
+  margin: 50px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+}
+
+.id-img{
+  width: 10%;
+  border-radius: 3px;
+}
+
+.intro{
+
 }
 
 .row{
