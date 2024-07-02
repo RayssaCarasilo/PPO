@@ -8,6 +8,7 @@
 
 :root{
   --cor-primaria: #44145a;
+  --cor-secundaria: #ece8ee;
 }
 
 html {
@@ -30,8 +31,8 @@ header {
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    height: 100svh;
-    background-image: url("imgs/ppo.png");
+    background-image: url("imgs/banner.png");
+    background-size: cover;
   } 
 
 header button.denuncia{
@@ -44,6 +45,7 @@ header button.denuncia{
     font-weight: 400;
     font-style: normal;
     letter-spacing: 5px;
+    margin: none;
 }
 
 header button.denuncia:hover{
@@ -53,6 +55,17 @@ header button.denuncia:hover{
     transition: ease-in-out .5s;
 }
 
+header.logo{
+  width: 50%;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.logonav{
+  width: 8%;
+  margin-right: 40%;
+  padding: 1%
+}
 
 nav {
     position: fixed;
@@ -135,7 +148,8 @@ nav {
   section.sec4{
     display: flex;
     justify-content: center;
-    background-image: url("imgs/mulheresfelizes.png")
+    background-image: url("imgs/mulheresfelizes (1).png");
+    background-size: cover;
   }
   
   form {
@@ -212,7 +226,7 @@ body h2 {
 }
 
 body section p{
-  color: #D8C7FF;
+  color: var(--cor-secundaria);
   font-family: "Quicksand", sans-serif;
 }
 
@@ -371,8 +385,6 @@ main {
 .id-img{
   width: 10%;
   border-radius: 3px;
+  
 }
 
-.intro{
-
-}
