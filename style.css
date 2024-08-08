@@ -367,7 +367,6 @@ main {
 .test{
   display: flex;
   justify-content: center;
-  height: 100vh;
   align-items: center;
 }
 
@@ -378,13 +377,25 @@ main {
 .card{
   height: 500px;
   margin: 50px;
-  box-shadow: 5px 5px 20px black;
+  box-shadow: 5px 5px 19px #00000033;
   overflow: hidden;
+  padding: 20px;
 }
 
-.id-img{
-  width: 10%;
-  border-radius: 3px;
-  
+.profile{
+  margin-left: 17%;
+  --s: 304px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: var(--s);
+  width: var(--s);
+  object-fit: cover;
+  display: flex;
 }
+
+.card:hover {
+  background-color: var(--cor-primaria);
+  transition: .5s ease-in-out;
+}
+
 
