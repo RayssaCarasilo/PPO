@@ -69,7 +69,7 @@ header.logo{
 
 nav {
     position: fixed;
-    background-color:var(--cor-primaria);
+    background-color: var(--cor-primaria);
     padding: 5px;
     width: 100%;
     z-index: 1;

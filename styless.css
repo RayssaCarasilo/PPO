@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;1,9..40,500&family=Inconsolata:wdth,wght@98.3,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root{
+  --cor-primaria: #44145a;
+  --cor-secundaria: #ece8ee;
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -6,20 +20,45 @@
 
 .container{
     width: 100%;
-    height: 100vh;
-    background-position:center;
-    background-size:cover;
+    box-sizing: border-box;
+ 
+
 }
 
 .navbar{
     height: 12%;
     display: flex;
     align-items: center;
+    background-color: var(--cor-primaria);
+  
+}
+
+.logo{
+  width: 6%;
+  cursor: pointer;
+  margin-left: 3%;
 }
 
 nav{
     flex: 1;
     text-align: right;
+}
+
+nav ul{
+  margin-right: 8%;
+}
+
+nav ul li{
+  list-style: none;
+  display: inline-block;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: var(--cor-secundaria);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem; 
+  margin-left: 1em;
 }
 
 .row{
@@ -33,14 +72,44 @@ nav{
   }
   
   h1{
+    font-family: "Roboto Mono", monospace;
     color: #5a4242;
     font-size: 100px;
+    text-transform: uppercase;
   }
   
   p{
+    font-family: "Quicksand", sans-serif;
     color: #5c2e2e;
-    font-size: 11px;
+    font-size: 1rem; 
     line-height: 15px;
+    font-weight: 500;
   }/*cuzinho bicudo*/
 
+
+button{
+  width: 180px;
+  color: #000;
+  font-size: 12px;
+  padding: 12px 0;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 30px;
+}
+
+.card{
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-image: url(imgs/mulheresfelizes.png);
+  background-position: center;
+  background-size: cover;
+
+}
   
