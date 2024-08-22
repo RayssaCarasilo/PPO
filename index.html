@@ -2,116 +2,132 @@
 <html lang="pt-br">
 
 <head>
-    <title>Ready Now!</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <script defer async src="scripts.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap"
-        rel="stylesheet">
+  <title>Ready Now!</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script defer async src="scripts.js"></script> -->
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <nav>
-        <img src="imgs/logopequeno.png" class="logonav">
-        <ul class="nav-list">
-            <li active>
-                <a href="#one">
-                    Home
-            </li>
-            <li>
-                <a href="#sec1">
-                    Quem somos
-                </a>
-            </li>
-            <li>
-                <a href="#sec3">
-                    Colaboradores
-                </a>
-            </li>
-            <li>
-                <a href="indicacoes.html">
-                    Indicações
-                </a>
-            </li>
-            <li>
-                <a href="#sec4">
-                    Contato
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <header id="one">
-        <img src="imgs/logo.png" class="logo">
+  <nav>
+    <img src="imgs/logopequeno.png" class="logonav">
+    <ul class="nav-list">
+      <li active>
+        <a href="#one">
+          Home
+      </li>
+      <li>
+        <a href="#sec1">
+          Quem somos
         </a>
-    </header>
+      </li>
+      <li>
+        <a href="#sec3">
+          Colaboradores
+        </a>
+      </li>
+      <li>
+        <a href="indicacoes.html">
+          Indicações
+        </a>
+      </li>
+      <li>
+        <a href="#sec4">
+          Contato
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <main>
-        <section class="sec1" id="sec1">
-            <h2>Quem somos</h2>
-            <p>Este relato de experiência apresenta as ações do Projeto de Ensino “Speak Out Safe”, desenvolvido entre fevereiro e setembro de 2024.
-                <br>O projeto tem como objetivo criar uma plataforma web para denúncias anônimas de abusos, protegendo a identidade das vítimas e proporcionando um ambiente<br>
-                seguro para compartilhamento de experiências e apoio mútuo. Além disso, o projeto inclui a recomendação de obras literárias em parceria com o Clube Fridas e Lidas,<br>
-                promovendo a reflexão sobre questões de gênero. O curso de Informática contribui para o desenvolvimento técnico e o suporte com as vítimas.
+  <header id="one">
+    <img src="imgs/logo.png" class="logo">
+    </a>
+  </header>
 
-            </p>
-        </section>
-        <section class="sec2">
-            <h2>Idealizadoras do projeto</h2>
-            <div class="test">
-                <div class="container">
-                    <div class="card">
-                        <div class="profile">
-                        <img class="id-img" src="imgs/nicole.png" atl="Idealizadora do projeto Nicole.">
-                        </div>
-                        <div class="intro">
-                            <h1>Nicole</h1>
-                            <p>Estudante do IFC - Campus Camboriú do ensino médio <br>
-                                integrado com técnico em informática<br>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="profile">
-                            <img class="id-img" src="imgs/rayssa.png" atl="Idealizadora do projeto Nicole.">
-                        </div>
-                        <div class="intro">
-                            <h1>Rayssa</h1>
-                            <p>Estudante do IFC - Campus Camboriú do ensino médio <br>
-                                integrado com técnico em informática<br>
-                        </div>
-                    </div>
-                </div>
-        </section>
-        <section class="sec3" id="sec3">
-            <h2>Colaboladores</h2>
-
-            <div class="seccenter">
+  <main>
+    <section class="sec1" id="sec1">
+      <h2>Quem somos</h2>
+      <p>Este relato de experiência apresenta as ações do Projeto de Ensino “Speak Out Safe”, desenvolvido entre
+        fevereiro e setembro de 2024.
+        <br>O projeto tem como objetivo criar uma plataforma web para denúncias anônimas de abusos, protegendo a
+        identidade das vítimas e proporcionando um ambiente<br>
+        seguro para compartilhamento de experiências e apoio mútuo. Além disso, o projeto inclui a recomendação
+        de obras literárias em parceria com o Clube Fridas e Lidas,<br>
+        promovendo a reflexão sobre questões de gênero. O curso de Informática contribui para o desenvolvimento
+        técnico e o suporte com as vítimas.
+      </p>
+    </section>
+    <section class="sec2">
+      <h2>Idealizadoras do projeto</h2>
+      <div class="test">
+        <div class="container">
+          <div class="card">
+            <div class="profile">
+              <img class="id-img" src="imgs/nicole.png" atl="Idealizadora do projeto Nicole.">
             </div>
-
-        </section>
-        <section class="sec4" id="sec4">
-            <form name="meu_form">
-
-                <h2>Contato</h2>
-
-                <input type="text" id="nomeid" placeholder="Nome" required="required" name="nome" />
-
-                <input type="tel" id="foneid" placeholder="Telefone/Whatsapp" name="fone" />
-
-                <input type="email" id="emailid" placeholder="E-mail" name="email" />
-
-
-                <textarea placeholder="Mensagem"></textarea>
-
-                <input type="submit" class="EnviarMensagem" onclick="Enviar();" value="Enviar" />
-            </form>
-        </section>
-    </main>
+            <div class="intro">
+              <h1>Nicole</h1>
+              <p>Estudante do IFC - Campus Camboriú do ensino médio <br>
+                integrado com técnico em informática<br>
+            </div>
+          </div>
+          <div class="card">
+            <div class="profile">
+              <img class="id-img" src="imgs/rayssa.png" atl="Idealizadora do projeto Nicole.">
+            </div>
+            <div class="intro">
+              <h1>Rayssa</h1>
+              <p>Estudante do IFC - Campus Camboriú do ensino médio <br>
+                integrado com técnico em informática<br>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="sec3" id="sec3">
+      <h2>Colaboladores</h2>
+      <div class="glide">
+        <div data-glide-el="track" class="glide__track">
+          <ul class="glide__slides">
+            <li class="glide__slide"><img class="cola" src="imgs/fridaslogo.png"></li>
+            <li class="glide__slide"><img class="cola" src="imgs/logoifc.png"></li>
+            <li class="glide__slide"><img class="cola2" src="imgs/logogremio.png"></li>
+            <li class="glide__slide"><img class="cola" src="imgs/logosisae.png"></li>
+          </ul>
+        </div>
+        <div data-glide-el="controls[nav]">
+          <button class="controlsnav" data-glide-dir="=0"> </button>
+          <button class="controlsnav" data-glide-dir="=1"> </button>
+          <button class="controlsnav" data-glide-dir="=2"> </button>
+          <button class="controlsnav" data-glide-dir="=3"> </button>
+        </div>
+      </div>
+    </section>
+    <section class="sec4" id="sec4">
+      <form name="meu_form">
+        <h2>Contato</h2>
+        <input type="text" id="nomeid" placeholder="Nome" required="required" name="nome" />
+        <input type="tel" id="foneid" placeholder="Telefone/Whatsapp" name="fone" />
+        <input type="email" id="emailid" placeholder="E-mail" name="email" />
+        <textarea placeholder="Mensagem"></textarea>
+        <input type="submit" class="EnviarMensagem" onclick="Enviar();" value="Enviar" />
+      </form>
+    </section>
+  </main>
+  <footer>
+    <!--  -->
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <script>
+    new Glide('.glide', {
+      autoplay: 3000,
+      hoverpause: false
+    }).mount()
+  </script>
 </body>
-<footer>
-
-</footer>
 
 </html>
