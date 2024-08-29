@@ -38,7 +38,7 @@ header {
     height: 100%;
   } 
 
-header button.denuncia{
+  header button.denuncia{
     border: none;
     width: 10%;
     height: 5%;
@@ -249,6 +249,14 @@ body section.sec3 {
   padding: 2% 5% 5% 5%;
 }
 
+.titulo{
+  width: 40%;
+}
+
+.titulo4{
+  width: 20%;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -441,4 +449,11 @@ main {
 .controlsnav:hover{
   color:#651f9e;
   background-color: var(--cor-secundaria);
+}
+
+footer{
+  padding: 6%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+  font-family: "Roboto Mono", monospace;
 }
