@@ -77,15 +77,19 @@ nav ul li a{
   }
   
   h1{
+    margin-left: 10%;
     font-family: "Roboto Mono", monospace;
-    color: #5a4242;
+    color: var(--cor-secundaria);
+    text-shadow: 0 0 5px #7a7a7a;
     font-size: 100px;
     text-transform: uppercase;
   }
   
   p{
+    margin-left: 10%;
     font-family: "Quicksand", sans-serif;
-    color: #5c2e2e;
+    color: var(--cor-secundaria);
+    text-shadow: 0 0 5px #7a7a7a;
     font-size: 1rem; 
     line-height: 15px;
     font-weight: 500;
@@ -93,48 +97,107 @@ nav ul li a{
 
 
 button{
-  border: 2px solid #623E2A;
+  border: 2px solid var(--cor-primaria);
   border-radius: 20px;
   padding: 1%;
   height: 5%;
   font-size: 150%;
-  color:#623E2A;
+  color:var(--cor-primaria);
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 5px;
   margin: 1.5em;
+  margin-left: 20%;
   background-color: var(--cor-terciaria)
 }
 
 button:hover{
-  background-color:#623E2A;
+  background-color: var(--cor-primaria);
   color: var(--cor-terciaria)
 }
 
-.card{
-  margin: 50% 50%;
+.card1{
+  padding: 10%;
+  margin: 60%;
   width: 200px;
   height: 230px;
   display: inline-block;
   border-radius: 10px;
   box-sizing: border-box;
   cursor: pointer;
-  background-image: url(imgs/mulheresfelizes.png);
+  background-image: url(imgs/livro.png);
   background-position: center;
   background-size: cover;
-
 }
-  
-.cards {
+
+.card2{
+  margin: 60% 90%;
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-image: url(imgs/serie.png);
+  background-position: center;
+  background-size: cover;
+}
+
+
+.card3{
+  margin-left: 60%;
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-image: url(imgs/filme.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.card4{
+  margin-left: 90%;
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-image: url(imgs/recados.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.card1, .card2, .card3, .card4{
+  box-shadow: rgba(42, 44, 46, 0.432) 0px 8px 24px;
+  border: 2px solid var(--cor-secundaria);
+  padding: 10%;
+  transition: transform 0.5s;
+}
+
+.cards{
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 1rem;
 }
 
-footer{
-  padding: 6%;
-  background-color: var(--cor-primaria);
-  color: var(--cor-secundaria);
-  font-family: "Roboto Mono", monospace;
+
+.card1:hover, .card2:hover, .card3:hover, .card4:hover{
+  transform: translateY(-10px);
+}
+
+h5{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  text-shadow: 0 0 5px #999;
+}
+
+.cards p{
+  color: #ffffff;
+  text-shadow: 0 0 15px #000;
+  font-size: 10px;
 }

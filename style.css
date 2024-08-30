@@ -385,7 +385,7 @@ main {
   display:flex;
 }
 
-.card{
+.card1, .card2, .card3, .card4{
   height: 500px;
   margin: 50px;
   box-shadow: 5px 5px 19px #00000033;
