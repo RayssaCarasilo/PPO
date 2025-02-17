@@ -154,68 +154,43 @@ nav {
     background-image: url("imgs/mulheresfelizes.png");
     background-size: cover;
   }
-  
-  form {
-    font-family: Verdana,Tahoma,sans-serif;
-    font-size: 15px;
-    background-color: #e9cec5;
-    max-width: 100%;
-    margin: 5%;
-    padding: 5% 15%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgb(167, 166, 166);
-    border-radius: 2%;
-  }
 
-form.meu_form {
-  margin: 10px;
-}
 .sec4 h2{
   margin: 5px 5px 30px 5px;
 }
 
-
-input, textarea {
-    padding: 5% 20%;
-    color: black;
-    margin-top: 15px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border: 1px solid;
-    font-family: "Crimson Text", serif;
-    cursor: text;
+form {
+  font-family: Verdana,Tahoma,sans-serif;
+  font-size: 15px;
+  max-width: 100%;
+  background: #740083;
+  margin: 5%;
+  padding: 40px;
+  display: flex;
+  border: 1px solid rgb(167, 166, 166);
+  border-radius: 10px;
+  flex-flow: column wrap;
 }
 
-input.EnviarMensagem {
-    box-sizing: border-box;
-    background-color: #b385b9;
-    height: 40px;
-    width: 100px;
-    font-weight: bold;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border: 1px solid;
-    color: black;
-    cursor: pointer;
+body {
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+input{
+  height: 30px;
+  margin-top: 15px;
+  padding: 10px;
 }
 
 textarea {
-    height: 5%;
-    line-height: 20px;
-    max-width: 400px;
-    cursor: text;
-    overflow: hidden;
-    flex-grow: 1;
+  width: 90%;
+  margin-top: 15px;
+  padding: 10px;
 }
-
-form label {
-    margin-left: 20px;
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
 
 body h2 {
   font-size:350%;
