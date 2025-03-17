@@ -96,27 +96,6 @@ nav ul li a{
   }/*cuzinho bicudo*/
 
 
-button{
-  border: 2px solid var(--cor-primaria);
-  border-radius: 20px;
-  padding: 1%;
-  height: 5%;
-  font-size: 150%;
-  color:var(--cor-primaria);
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 5px;
-  margin: 1.5em;
-  margin-left: 20%;
-  background-color: var(--cor-terciaria)
-}
-
-button:hover{
-  background-color: var(--cor-primaria);
-  color: var(--cor-terciaria)
-}
-
 .card1{
   padding: 10%;
   margin: 60%;
