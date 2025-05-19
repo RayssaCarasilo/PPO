@@ -66,6 +66,81 @@ nav ul li a{
   margin-left: 1em;
 }
 
+
+/* Esconde o botão hambúrguer em telas grandes */
+.nav-toggle,
+.nav-toggle-label {
+  display: none;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+  nav {
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: space-between;
+    padding: 10px 5%;
+  }
+  .logonav {
+    width: 15vw;
+    min-width: 80px;
+    margin-right: 0;
+  }
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .nav-toggle-label span {
+    display: block;
+    height: 5px;
+    width: 30px;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: .3s;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--cor-primaria);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    padding: 20px 0 10px 30px;
+    box-shadow: 0 8px 16px #0002;
+    display: none;
+    z-index: 1;
+  }
+  .nav-list li {
+    width: 100%;
+    margin: 10px 0;
+    padding: 0;
+  }
+  .nav-toggle:checked ~ .nav-list {
+    display: flex;
+  }
+}
+
 .row{
     display: flex;
     height: 88%;
