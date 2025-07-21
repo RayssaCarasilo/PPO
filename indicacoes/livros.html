@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <title>Galeria de Filmes</title>
+  <title>Galeria de Livros</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +116,7 @@
       padding: 20px 0;
     }
 
-    .movie-card {
+    .book-card {
       background: white;
       border-radius: 15px;
       overflow: hidden;
@@ -125,27 +125,27 @@
       cursor: pointer;
     }
 
-    .movie-card:hover {
+    .book-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     }
 
-    .movie-image {
+    .book-image {
       width: 100%;
-      height: 400px;
+      height: 350px;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
 
-    .movie-card:hover .movie-image {
+    .book-card:hover .book-image {
       transform: scale(1.05);
     }
 
-    .movie-info {
+    .book-info {
       padding: 20px;
     }
 
-    .movie-title {
+    .book-title {
       font-family: 'Cinzel', serif;
       font-size: 1.2rem;
       color: #2c3e50;
@@ -153,29 +153,13 @@
       line-height: 1.3;
     }
 
-    .movie-year {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-      margin-bottom: 5px;
-    }
-
-    .movie-director {
+    .book-author {
       color: #7f8c8d;
       font-size: 1rem;
       margin-bottom: 10px;
     }
 
-    .movie-genre {
-      background: #3498db;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-
-    .movie-description {
+    .book-description {
       color: #666;
       font-size: 0.9rem;
       line-height: 1.4;
@@ -185,7 +169,7 @@
       overflow: hidden;
     }
 
-    .movie-rating {
+    .book-rating {
       display: flex;
       align-items: center;
       margin-top: 10px;
@@ -226,7 +210,7 @@
 <body>
   <div class="container">
       <div class="navbar"> 
-        <img src="../imgs/logopequeno.png" class="logo">
+        <img src="imgs/logopequeno.png" class="logo">
         <nav>
           <ul>
             <li><a href="../index.html">Home</a></li>
@@ -239,103 +223,91 @@
       </div>
     </div>
   <div class="gallery-header">
-    <h1>Cinema & Empoderamento</h1>
-    <p>Filmes que inspiram e transformam perspectivas</p>
+    <h1>Biblioteca Digital</h1>
+    <p>Descubra sua próxima leitura favorita</p>
   </div>
 
   <div class="search-bar">
-    <input type="text" placeholder="Buscar filmes, diretores, gêneros...">
+    <input type="text" placeholder="Buscar livros, autores, gêneros...">
   </div>
 
   <div class="gallery-container">
     <div class="gallery-grid">
       
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=11" alt="Filme 1" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Mulheres Pequenas</h3>
-          <p class="movie-year">2019</p>
-          <p class="movie-director">Dir. Greta Gerwig</p>
-          <span class="movie-genre">Drama</span>
-          <p class="movie-description">Adaptação do clássico romance sobre quatro irmãs em busca de seus sonhos e independência na América do século XIX...</p>
-          <div class="movie-rating">
+      <div class="book-card">
+        <img src="https://picsum.photos/300/450?random=1" alt="Livro 1" class="book-image">
+        <div class="book-info">
+          <h3 class="book-title">Dom Casmurro</h3>
+          <p class="book-author">Machado de Assis</p>
+          <p class="book-description">Um dos maiores clássicos da literatura brasileira, narrando a história de Bentinho e sua obsessão por Capitu...</p>
+          <div class="book-rating">
             <span class="stars">★★★★★</span>
-            <span class="rating-text">4.6 (1.2k avaliações)</span>
+            <span class="rating-text">4.5 (320 avaliações)</span>
           </div>
         </div>
       </div>
 
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=12" alt="Filme 2" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Estrelas Além do Tempo</h3>
-          <p class="movie-year">2016</p>
-          <p class="movie-director">Dir. Theodore Melfi</p>
-          <span class="movie-genre">Biografia</span>
-          <p class="movie-description">A história inspiradora das matemáticas afro-americanas que ajudaram a NASA a vencer a corrida espacial...</p>
-          <div class="movie-rating">
+      <div class="book-card">
+        <img src="https://picsum.photos/300/500?random=2" alt="Livro 2" class="book-image">
+        <div class="book-info">
+          <h3 class="book-title">O Cortiço</h3>
+          <p class="book-author">Aluísio Azevedo</p>
+          <p class="book-description">Romance naturalista que retrata a vida em um cortiço no Rio de Janeiro do século XIX...</p>
+          <div class="book-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-text">4.2 (185 avaliações)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://picsum.photos/300/420?random=3" alt="Livro 3" class="book-image">
+        <div class="book-info">
+          <h3 class="book-title">Iracema</h3>
+          <p class="book-author">José de Alencar</p>
+          <p class="book-description">Lenda do Ceará que narra o amor entre a índia Iracema e o português Martim...</p>
+          <div class="book-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-text">4.0 (265 avaliações)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://picsum.photos/300/480?random=4" alt="Livro 4" class="book-image">
+        <div class="book-info">
+          <h3 class="book-title">O Guarani</h3>
+          <p class="book-author">José de Alencar</p>
+          <p class="book-description">Romance indianista que conta a história de amor entre Peri e Ceci...</p>
+          <div class="book-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-text">4.1 (198 avaliações)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://picsum.photos/300/460?random=5" alt="Livro 5" class="book-image">
+        <div class="book-info">
+          <h3 class="book-title">Senhora</h3>
+          <p class="book-author">José de Alencar</p>
+          <p class="book-description">Romance urbano que aborda temas como dinheiro, amor e sociedade no século XIX...</p>
+          <div class="book-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-text">4.3 (142 avaliações)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="https://picsum.photos/300/440?random=6" alt="Livro 6" class="book-image">
+        <div class="book-info">
+          <h3 class="book-title">Memórias Póstumas de Brás Cubas</h3>
+          <p class="book-author">Machado de Assis</p>
+          <p class="book-description">Narrado por um defunto autor, este romance revolucionou a literatura brasileira...</p>
+          <div class="book-rating">
             <span class="stars">★★★★★</span>
-            <span class="rating-text">4.7 (2.1k avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=13" alt="Filme 3" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Lady Bird</h3>
-          <p class="movie-year">2017</p>
-          <p class="movie-director">Dir. Greta Gerwig</p>
-          <span class="movie-genre">Coming-of-age</span>
-          <p class="movie-description">Uma adolescente rebelde navega por seu último ano no ensino médio, relacionamentos e sonhos de liberdade...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.3 (956 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=14" alt="Filme 4" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Frida</h3>
-          <p class="movie-year">2002</p>
-          <p class="movie-director">Dir. Julie Taymor</p>
-          <span class="movie-genre">Biografia</span>
-          <p class="movie-description">A vida tumultuada e apaixonada da artista mexicana Frida Kahlo e sua relação com Diego Rivera...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.4 (1.8k avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=15" alt="Filme 5" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Malala</h3>
-          <p class="movie-year">2015</p>
-          <p class="movie-director">Dir. Davis Guggenheim</p>
-          <span class="movie-genre">Documentário</span>
-          <p class="movie-description">Documentário sobre a jovem ativista paquistanesa que luta pelo direito à educação das meninas...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-text">4.8 (745 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=16" alt="Filme 6" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">As Sufragistas</h3>
-          <p class="movie-year">2015</p>
-          <p class="movie-director">Dir. Sarah Gavron</p>
-          <span class="movie-genre">Drama Histórico</span>
-          <p class="movie-description">A luta das mulheres britânicas pelo direito ao voto no início do século XX...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.2 (1.3k avaliações)</span>
+            <span class="rating-text">4.6 (401 avaliações)</span>
           </div>
         </div>
       </div>
@@ -346,27 +318,25 @@
   <script>
     // Adicionar funcionalidade de busca
     const searchInput = document.querySelector('.search-bar input');
-    const movieCards = document.querySelectorAll('.movie-card');
+    const bookCards = document.querySelectorAll('.book-card');
 
     searchInput.addEventListener('input', function() {
       const searchTerm = this.value.toLowerCase();
       
-      movieCards.forEach(card => {
-        const title = card.querySelector('.movie-title').textContent.toLowerCase();
-        const director = card.querySelector('.movie-director').textContent.toLowerCase();
-        const genre = card.querySelector('.movie-genre').textContent.toLowerCase();
+      bookCards.forEach(card => {
+        const title = card.querySelector('.book-title').textContent.toLowerCase();
+        const author = card.querySelector('.book-author').textContent.toLowerCase();
         
-        if (title.includes(searchTerm) || director.includes(searchTerm) || genre.includes(searchTerm)) {
+        if (title.includes(searchTerm) || author.includes(searchTerm)) {
           card.style.display = 'block';
         } else {
           card.style.display = 'none';
         }
       });
     });
-
-    movieCards.forEach(card => {
+    bookCards.forEach(card => {
       card.addEventListener('click', function() {
-        const title = this.querySelector('.movie-title').textContent;
+        const title = this.querySelector('.book-title').textContent;
         alert(`Você clicou em: ${title}`);
       });
     });
