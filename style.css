@@ -65,89 +65,243 @@ header.logo{
   margin-left: 10%;
 }
 
-.logonav{
-  width: 8%;
-  margin-right: 40%;
-  padding: 1%
-}
-
 nav {
     position: fixed;
     background-color: var(--cor-primaria);
-    padding: 5px;
+    padding: 15px 20px;        /* Padding mais consistente */
     width: 100%;
-    z-index: 1;
+    z-index: 1000;             /* Z-index maior */
     font-size: 1.5rem; 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;  /* Melhor distribuição */
     align-items: center;
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 10;
-    height: 10vh;
-  }
+    height: 80px;              /* Altura fixa */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* Sombra sutil */
+}
 
-  nav :is(ul, li) {
+.logonav{
+    width: 60px;               /* Tamanho fixo */
+    height: auto;
+    margin: 0;                 /* Remove margens desnecessárias */
+    cursor: pointer;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;                 /* Espaçamento consistente */
     margin: 0;
     padding: 0;
-    list-style: none;
-    display: inline-block;
-  }
-  
-  nav ul li {
-    padding: .5em;
-    transition: .3s;
+}
+
+.nav-list li a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    padding: 8px 12px;         /* Área clicável maior */
     border-radius: 5px;
+}
+
+.nav-list li a:hover {
+    color: #f1c40f;            /* Cor de hover consistente */
+}
+
+.nav-list li[active] a {
+    color: #f1c40f;
+    border-bottom: 2px solid #f1c40f;
+}
+
+/* Botão hambúrguer para mobile */
+.nav-toggle {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2000;
     cursor: pointer;
-    margin: 10px;
+}
+
+.nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 1500;
+    cursor: pointer;
+}
+
+.nav-toggle-label span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background: var(--cor-secundaria);
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+        height: 70px;
+    }
+
+    .logonav {
+        width: 50px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--cor-primaria);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        display: none;
+        z-index: 1000;
+    }
+
+    .nav-list li {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .nav-list li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1.3rem;
+    }
+
+    .nav-toggle:checked ~ .nav-list {
+        display: flex;
+    }
   }
 
-  nav > ul{
-    margin-left: 20px;
-  }
-  
-  nav a {
-    color: rgb(253, 252, 252);
+  .nav-list li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: relative;  /* Necessário para posicionar o dropdown */
+}
+
+.nav-list li a {
+    color: var(--cor-secundaria);
     text-decoration: none;
-  }
-  
-  nav a:active {
-    color: pink;
-  }
-  
-  nav > ul > li {
-    position: relative;
-  }
-  
-  nav > ul > li > ul {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Estilo do dropdown */
+.dropdown {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgb(226, 216, 216);
+    background: var(--cor-primaria);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    min-width: 200px;
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 2000;
+}
+
+.dropdown li {
+    width: 100%;
+    margin: 0;
+}
+
+.dropdown li a {
+    padding: 12px 10px;
     font-size: 1.2rem;
-    border: 1.5px solid;
-  }
-  
-  nav > ul > li:hover > ul {
+    color: var(--cor-secundaria);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0;
+    text-align: left;  
+}
+
+.dropdown li:last-child a {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown li:first-child a {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #f1c40f;
+}
+
+/* Mostra o dropdown no hover */
+.nav-list li:hover .dropdown {
     opacity: 1;
     visibility: visible;
-  }
-  
-  nav > ul > li > ul > li {
-    display: block;
-  }
-  
-  nav > .logo {
-    height: 5rem;
-    margin: .5%;
-  }
+    transform: translateY(0);
+}
 
-  nav li a:hover{
-    color: rgb(240, 190, 53);
-  }
+/* Seta indicativa (opcional) */
+.nav-list li.has-dropdown > a::after {
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
 
+/* Responsividade do dropdown */
+@media (max-width: 768px) {
+    .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255,255,255,0.1);
+        margin-top: 10px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .nav-list li:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown li a {
+        padding: 8px 20px;
+        font-size: 1.1rem;
+    }
+
+    .nav-list li.has-dropdown > a::after {
+        float: right;
+    }
+}
 
   section.sec4{
     display: flex;
@@ -281,7 +435,6 @@ main {
 .navigation-auto{
   position: absolute;
   bottom: 20px;
-
   display: flex;
   left: 50%;
   transform: translate(-50%);
