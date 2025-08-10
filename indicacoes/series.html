@@ -1,291 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <title>Galeria de Séries</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-  <title>Galeria de Séries</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      :root {
+        --cor-primaria: #44145a;
+        --cor-secundaria: #ece8ee;
+        --cor-terciaria: #ae91bb;
+      }
 
-    body {
-      font-family: 'Old Standard TT', serif;
-      background-color: #f8f9fa;
-    }
+      body {
+        font-family: "Old Standard TT", serif;
+        background-color: var(--cor-terciaria);
+      }
 
-    /* Navbar styles */
-    .container {
-      padding: 0 20px;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+      /* Navbar styles */
+      .container {
+        padding: 0 20px;
+        background: var(--cor-primaria);
+      }
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-    }
-
-    .logo {
-      height: 50px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #3498db;
-    }
-
-    nav ul li[active] a {
-      color: #3498db;
-      border-bottom: 2px solid #3498db;
-    }
-
-    /* Gallery styles */
-    .main-content {
-      padding: 40px 20px;
-    }
-
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .gallery-header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    .gallery-header p {
-      color: #7f8c8d;
-      font-size: 1.2rem;
-    }
-
-    .search-bar {
-      max-width: 500px;
-      margin: 0 auto 40px;
-      position: relative;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 15px 20px;
-      font-size: 16px;
-      border: 2px solid #ddd;
-      border-radius: 25px;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .search-bar input:focus {
-      border-color: #3498db;
-    }
-
-    .gallery-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px;
-      padding: 20px 0;
-    }
-
-    .series-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .series-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-
-    .series-image {
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .series-card:hover .series-image {
-      transform: scale(1.05);
-    }
-
-    .series-info {
-      padding: 25px;
-    }
-
-    .series-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      color: #2c3e50;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .series-details {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .series-year {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-
-    .series-seasons {
-      background: #e74c3c;
-      color: white;
-      padding: 3px 8px;
-      border-radius: 10px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .series-creator {
-      color: #7f8c8d;
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
-
-    .series-genre {
-      background: #9b59b6;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .series-network {
-      background: #34495e;
-      color: white;
-      padding: 3px 8px;
-      border-radius: 10px;
-      font-size: 0.75rem;
-      margin-left: 8px;
-      display: inline-block;
-    }
-
-    .series-description {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-
-    .series-rating {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .rating-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .stars {
-      color: #f39c12;
-      margin-right: 8px;
-    }
-
-    .rating-text {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-
-    .series-status {
-      font-size: 0.8rem;
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-
-    .status-ongoing {
-      background: #27ae60;
-      color: white;
-    }
-
-    .status-ended {
-      background: #95a5a6;
-      color: white;
-    }
-
-    .status-upcoming {
-      background: #f39c12;
-      color: white;
-    }
-
-    @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        gap: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 6%;
       }
 
       nav ul {
-        gap: 15px;
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cor-secundaria);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem; 
+        margin: 1.5em;
+      }
+
+      nav ul li a:hover {
+        color: #f1c40f;
+      }
+
+      nav ul li[active] a {
+        color: #f1c40f;
+      }
+
+      /* Gallery styles */
+      .main-content {
+        padding: 40px 20px;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .gallery-header h1 {
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      .gallery-header p {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+      }
+
+      .search-bar {
+        max-width: 500px;
+        margin: 0 auto 40px;
+        position: relative;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 25px;
+        outline: none;
+        transition: border-color 0.3s;
+        margin-top: 10%;
+      }
+
+      .search-bar input:focus {
+        border-color: #3498db;
+      }
+
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        padding: 20px 0;
       }
-      
-      .gallery-header h1 {
-        font-size: 2rem;
+
+      .series-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .series-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .series-image {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .series-card:hover .series-image {
+        transform: scale(1.05);
+      }
+
+      .series-info {
+        padding: 25px;
+      }
+
+      .series-title {
+        font-family: "Cinzel", serif;
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        line-height: 1.3;
       }
 
       .series-details {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="container">
-      <div class="navbar"> 
-        <img src="../imgs/logopequeno.png" class="logo">
+      .series-year {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .series-seasons {
+        background: #e74c3c;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .series-creator {
+        color: #7f8c8d;
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      .series-genre {
+        background: #9b59b6;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+
+      .series-network {
+        background: #34495e;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        margin-left: 8px;
+        display: inline-block;
+      }
+
+      .series-description {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+
+      .series-rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .rating-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .stars {
+        color: #f39c12;
+        margin-right: 8px;
+      }
+
+      .rating-text {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .series-status {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      .status-ongoing {
+        background: #27ae60;
+        color: white;
+      }
+
+      .status-ended {
+        background: #95a5a6;
+        color: white;
+      }
+
+      .status-upcoming {
+        background: #f39c12;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 20px;
+        }
+
+        .gallery-header h1 {
+          font-size: 2rem;
+        }
+
+        .series-details {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img src="../imgs/logopequeno.png" class="logo" />
         <nav>
           <ul>
             <li><a href="../index.html">Home</a></li>
@@ -297,182 +301,236 @@
         </nav>
       </div>
     </div>
-  <div class="gallery-header">
-    <h1>Séries & Representatividade</h1>
-    <p>Narrativas que amplificam vozes e quebram barreiras</p>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Buscar séries, criadores, redes...">
-  </div>
-
-  <div class="gallery-container">
-    <div class="gallery-grid">
-      
-      <div class="series-card">
-        <img src="https://picsum.photos/350/380?random=21" alt="Série 1" class="series-image">
-        <div class="series-info">
-          <h3 class="series-title">The Handmaid's Tale</h3>
-          <div class="series-details">
-            <span class="series-year">2017-2022</span>
-            <span class="series-seasons">5 temporadas</span>
-          </div>
-          <p class="series-creator">Criada por Bruce Miller</p>
-          <span class="series-genre">Drama Distópico</span>
-          <span class="series-network">Hulu</span>
-          <p class="series-description">Em uma sociedade totalitária, mulheres férteis são forçadas a gerar filhos para famílias da elite. Uma poderosa reflexão sobre direitos reprodutivos...</p>
-          <div class="series-rating">
-            <div class="rating-left">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.8 (3.2k)</span>
-            </div>
-            <span class="series-status status-ended">Finalizada</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="series-card">
-        <img src="https://picsum.photos/350/380?random=22" alt="Série 2" class="series-image">
-        <div class="series-info">
-          <h3 class="series-title">Orange Is the New Black</h3>
-          <div class="series-details">
-            <span class="series-year">2013-2019</span>
-            <span class="series-seasons">7 temporadas</span>
-          </div>
-          <p class="series-creator">Criada por Jenji Kohan</p>
-          <span class="series-genre">Drama Comédia</span>
-          <span class="series-network">Netflix</span>
-          <p class="series-description">A vida de mulheres em uma prisão federal feminina, explorando questões de classe, raça, sexualidade e sistema prisional...</p>
-          <div class="series-rating">
-            <div class="rating-left">
-              <span class="stars">★★★★☆</span>
-              <span class="rating-text">4.5 (4.1k)</span>
-            </div>
-            <span class="series-status status-ended">Finalizada</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="series-card">
-        <img src="https://picsum.photos/350/380?random=23" alt="Série 3" class="series-image">
-        <div class="series-info">
-          <h3 class="series-title">Big Little Lies</h3>
-          <div class="series-details">
-            <span class="series-year">2017-2019</span>
-            <span class="series-seasons">2 temporadas</span>
-          </div>
-          <p class="series-creator">Criada por David E. Kelley</p>
-          <span class="series-genre">Drama Mistério</span>
-          <span class="series-network">HBO</span>
-          <p class="series-description">Três mães se envolvem em um assassinato em uma escola primária. Uma trama que aborda violência doméstica e amizade feminina...</p>
-          <div class="series-rating">
-            <div class="rating-left">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.7 (2.8k)</span>
-            </div>
-            <span class="series-status status-ended">Finalizada</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="series-card">
-        <img src="https://picsum.photos/350/380?random=24" alt="Série 4" class="series-image">
-        <div class="series-info">
-          <h3 class="series-title">Pose</h3>
-          <div class="series-details">
-            <span class="series-year">2018-2021</span>
-            <span class="series-seasons">3 temporadas</span>
-          </div>
-          <p class="series-creator">Criada por Ryan Murphy</p>
-          <span class="series-genre">Drama Musical</span>
-          <span class="series-network">FX</span>
-          <p class="series-description">A cultura ballroom LGBTQ+ em Nova York nos anos 80 e 90, celebrando a comunidade trans e drag durante a crise da AIDS...</p>
-          <div class="series-rating">
-            <div class="rating-left">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.9 (1.9k)</span>
-            </div>
-            <span class="series-status status-ended">Finalizada</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="series-card">
-        <img src="https://picsum.photos/350/380?random=25" alt="Série 5" class="series-image">
-        <div class="series-info">
-          <h3 class="series-title">I May Destroy You</h3>
-          <div class="series-details">
-            <span class="series-year">2020</span>
-            <span class="series-seasons">1 temporada</span>
-          </div>
-          <p class="series-creator">Criada por Michaela Coel</p>
-          <span class="series-genre">Drama</span>
-          <span class="series-network">BBC/HBO</span>
-          <p class="series-description">Uma escritora questiona tudo em sua vida após sofrer agressão sexual. Uma obra corajosa sobre consentimento e trauma...</p>
-          <div class="series-rating">
-            <div class="rating-left">
-              <span class="stars">★★★★★</span>
-              <span class="rating-text">4.8 (2.3k)</span>
-            </div>
-            <span class="series-status status-ended">Minissérie</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="series-card">
-        <img src="https://picsum.photos/350/380?random=26" alt="Série 6" class="series-image">
-        <div class="series-info">
-          <h3 class="series-title">13 Reasons Why</h3>
-          <div class="series-details">
-            <span class="series-year">2017-2020</span>
-            <span class="series-seasons">4 temporadas</span>
-          </div>
-          <p class="series-creator">Criada por Brian Yorkey</p>
-          <span class="series-genre">Drama Teen</span>
-          <span class="series-network">Netflix</span>
-          <p class="series-description">Após o suicídio de uma adolescente, seus colegas descobrem as razões através de fitas cassete. Aborda bullying e saúde mental...</p>
-          <div class="series-rating">
-            <div class="rating-left">
-              <span class="stars">★★★★☆</span>
-              <span class="rating-text">4.3 (5.7k)</span>
-            </div>
-            <span class="series-status status-ended">Finalizada</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="gallery-header">
+      <h1>Séries de conforto</h1>
     </div>
-  </div>
 
-  <script>
-    // Adicionar funcionalidade de busca
-    const searchInput = document.querySelector('.search-bar input');
-    const seriesCards = document.querySelectorAll('.series-card');
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar séries, personagens, atores..." />
+    </div>
 
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase();
-      
-      seriesCards.forEach(card => {
-        const title = card.querySelector('.series-title').textContent.toLowerCase();
-        const creator = card.querySelector('.series-creator').textContent.toLowerCase();
-        const genre = card.querySelector('.series-genre').textContent.toLowerCase();
-        const network = card.querySelector('.series-network').textContent.toLowerCase();
-        
-        if (title.includes(searchTerm) || creator.includes(searchTerm) || 
-            genre.includes(searchTerm) || network.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+    <div class="gallery-container">
+      <div class="gallery-grid">
+        <div class="series-card">
+          <img
+            src="series/sexanthecity.jpg"
+            alt="Sex and the City"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Sex and the City</h3>
+            <div class="series-details">
+              <span class="series-year">1998-2004</span>
+              <span class="series-seasons">6 temporadas</span>
+            </div>
+            <p class="series-creator">Criada por Darren Star</p>
+            <span class="series-genre">Comédia Romântica</span>
+            <span class="series-network">HBO</span>
+            <p class="series-description">
+              Quatro amigas na cidade de Nova York exploram a vida, o amor e a
+              amizade. Uma série icônica que redefine a comédia romântica na
+              televisão.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+              <span class="series-status status-ended">Finalizada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="series/ogambitodarainha.jpg"
+            alt="O gambito da rainha"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">O Gambito da Rainha</h3>
+            <div class="series-details">
+              <span class="series-year">2020</span>
+              <span class="series-seasons">1 temporada</span>
+            </div>
+            <p class="series-creator">Criada por Scott Frank</p>
+            <span class="series-genre">Drama</span>
+            <span class="series-network">Netflix</span>
+            <p class="series-description">
+              A vida de uma prodígio do xadrez, desde sua infância em um orfanato
+              até sua ascensão no mundo do xadrez, enquanto lida com questões
+              pessoais e vícios.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.5 (4.1k)</span>
+              </div>
+              <span class="series-status status-ended">Finalizada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="series/orangeisthenewblack.webp"
+            alt="Orange Is the New Black"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Orange Is the New Black</h3>
+            <div class="series-details">
+              <span class="series-year">2013-2019</span>
+              <span class="series-seasons">7 temporadas</span>
+            </div>
+            <p class="series-creator">Criada por Jenji Kohan</p>
+            <span class="series-genre">Drama Comédia</span>
+            <span class="series-network">Netflix</span>
+            <p class="series-description">
+              Condenada a quinze meses de prisão por um crime que cometeu na 
+              juventude, Piper Chapman troca Larry, o seu solidário noivo, por 
+              um novo lar: uma prisão para mulheres.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.7 (2.8k)</span>
+              </div>
+              <span class="series-status status-ended">Finalizada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="series/selfmade.png"
+            alt="Self Made"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Self Made</h3>
+            <div class="series-details">
+              <span class="series-year">2020</span>
+              <span class="series-seasons">1 temporada</span>
+            </div>
+            <p class="series-creator">Criada por Ryan Murphy</p>
+            <span class="series-genre">Drama, Biográfico</span>
+            <span class="series-network">FX</span>
+            <p class="series-description">
+              Self Made é inspirada na vida de Madame C.J. Walker, mulher negra, nascida Sarah Breedlove numa antiga fazenda de algodão do sul dos Estados Unidos pós-abolição do trabalho escravo. Sarah foi a primeira filha de um casal de ex-escravizados a nascer em liberdade.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.9 (1.9k)</span>
+              </div>
+              <span class="series-status status-ended">Finalizada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="series/imaydestroyyou.avif"
+            alt="I May Destroy You"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">I May Destroy You</h3>
+            <div class="series-details">
+              <span class="series-year">2020</span>
+              <span class="series-seasons">1 temporada</span>
+            </div>
+            <p class="series-creator">Criada por Michaela Coel</p>
+            <span class="series-genre">Drama</span>
+            <span class="series-network">BBC/HBO</span>
+            <p class="series-description">
+              Uma escritora questiona tudo em sua vida após sofrer agressão
+              sexual. Uma obra corajosa sobre consentimento e trauma...
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (2.3k)</span>
+              </div>
+              <span class="series-status status-ended">Minissérie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="series/thehandmaidtale.jpg"
+            alt="The Handmaid's Tale"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">The Handmaid's Tale</h3>
+            <div class="series-details">
+              <span class="series-year">2017-2025</span>
+              <span class="series-seasons">6 temporadas</span>
+            </div>
+            <p class="series-creator">Criada por Bruce Miller</p>
+            <span class="series-genre">Drama, Ficção Científica</span>
+            <span class="series-network">Hulu</span>
+            <p class="series-description">
+              Em um futuro próximo, as mulheres são tratadas como propriedade do
+              estado. A história segue uma criada que luta pela liberdade e
+              dignidade em uma sociedade opressora.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.3 (5.7k)</span>
+              </div>
+              <span class="series-status status-ended">Finalizada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Adicionar funcionalidade de busca
+      const searchInput = document.querySelector(".search-bar input");
+      const seriesCards = document.querySelectorAll(".series-card");
+
+      searchInput.addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase();
+
+        seriesCards.forEach((card) => {
+          const title = card
+            .querySelector(".series-title")
+            .textContent.toLowerCase();
+          const creator = card
+            .querySelector(".series-creator")
+            .textContent.toLowerCase();
+          const genre = card
+            .querySelector(".series-genre")
+            .textContent.toLowerCase();
+          const network = card
+            .querySelector(".series-network")
+            .textContent.toLowerCase();
+
+          if (
+            title.includes(searchTerm) ||
+            creator.includes(searchTerm) ||
+            genre.includes(searchTerm) ||
+            network.includes(searchTerm)
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
       });
-    });
 
-    seriesCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.querySelector('.series-title').textContent;
-        alert(`Você clicou em: ${title}`);
+      seriesCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const title = this.querySelector(".series-title").textContent;
+          alert(`Você clicou em: ${title}`);
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

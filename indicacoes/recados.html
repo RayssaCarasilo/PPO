@@ -1,425 +1,472 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <title>Mural de Recados</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-  <title>Mural de Recados</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      :root {
+        --cor-primaria: #44145a;
+        --cor-secundaria: #ece8ee;
+        --cor-terciaria: #ae91bb;
+      }
 
-    body {
-      font-family: 'Old Standard TT', serif;
-      background-color: #f8f9fa;
-    }
+      body {
+        font-family: "Old Standard TT", serif;
+        background-color: var(--cor-terciaria);
+      }
 
-    /* Navbar styles */
-    .container {
-      padding: 0 20px;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+      /* Navbar styles */
+      .container {
+        padding: 0 20px;
+        background: var(--cor-primaria);
+      }
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-    }
-
-    .logo {
-      height: 50px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #3498db;
-    }
-
-    nav ul li[active] a {
-      color: #3498db;
-      border-bottom: 2px solid #3498db;
-    }
-
-    /* Page styles */
-    .main-content {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .page-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .page-header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    .page-header p {
-      color: #7f8c8d;
-      font-size: 1.2rem;
-    }
-
-    /* Form styles */
-    .message-form {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #2c3e50;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-family: 'Old Standard TT', serif;
-      font-size: 16px;
-      transition: border-color 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #3498db;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .submit-btn {
-      background: #3498db;
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 25px;
-      font-family: 'Cinzel', serif;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .submit-btn:hover {
-      background: #2980b9;
-    }
-
-    /* Messages wall styles */
-    .messages-wall {
-      margin-top: 40px;
-    }
-
-    .wall-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .wall-header h2 {
-      font-family: 'Cinzel', serif;
-      color: #2c3e50;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .messages-count {
-      color: #7f8c8d;
-      font-size: 1rem;
-    }
-
-    .message-card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-      border-left: 4px solid #3498db;
-      transition: transform 0.2s ease;
-    }
-
-    .message-card:hover {
-      transform: translateX(5px);
-    }
-
-    .message-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .message-author {
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      color: #2c3e50;
-      font-size: 1.1rem;
-    }
-
-    .message-date {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-
-    .message-content {
-      color: #555;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    .no-messages {
-      text-align: center;
-      color: #7f8c8d;
-      font-style: italic;
-      padding: 40px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        gap: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 6%;
       }
 
       nav ul {
-        gap: 15px;
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cor-secundaria);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        margin: 1.5em;
+      }
+
+      nav ul li a:hover {
+        color: #f1c40f;
+      }
+
+      nav ul li[active] a {
+        color: #f1c40f;
+      }
+
+      /* Page styles */
+      .main-content {
+        padding: 40px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 40px;
       }
 
       .page-header h1 {
-        font-size: 2rem;
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
       }
 
+      .page-header p {
+        color: var(--cor-secundaria);
+        font-size: 1.2rem;
+      }
+
+      /* Form styles */
       .message-form {
-        padding: 20px;
+        background: var(--cor-secundaria);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-family: "Old Standard TT", serif;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--cor-primaria);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .submit-btn {
+        background: var(--cor-primaria);
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        font-family: "Cinzel", serif;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .submit-btn:hover {
+        background: var(--cor-terciaria);
+      }
+
+      /* Messages wall styles */
+      .messages-wall {
+        margin-top: 40px;
+      }
+
+      .wall-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .wall-header h2 {
+        font-family: "Cinzel", serif;
+        color: var(--cor-primaria);
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .messages-count {
+        color: var(--cor-secundaria);
+        font-size: 1rem;
+      }
+
+      .message-card {
+        background: var(--cor-secundaria);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        border-left: 4px solid var(--cor-primaria);
+        transition: transform 0.2s ease;
+      }
+
+      .message-card:hover {
+        transform: translateX(5px);
       }
 
       .message-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="navbar"> 
-      <img src="../imgs/logopequeno.png" class="logo">
-      <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#sec2">Quem somos</a></li>
-          <li><a href="../index.html#sec1">Projeto</a></li>
-          <li><a href="../index.html#sec3">Colaboradores</a></li>
-          <li active><a href="indicacoes.html">Indicações</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-  <div class="main-content">
-    <div class="page-header">
-      <h1>Mural de Recados</h1>
-      <p>Compartilhe suas experiências, apoio e palavras de encorajamento</p>
-    </div>
-
-    <!-- Formulário para adicionar recado -->
-    <div class="message-form">
-      <h3 style="color: #2c3e50; margin-bottom: 20px; font-family: 'Cinzel', serif;">Deixe seu recado</h3>
-      <form id="messageForm">
-        <div class="form-group">
-          <label for="authorName">Seu nome (ou apelido):</label>
-          <input type="text" id="authorName" name="authorName" required maxlength="50">
-        </div>
-        
-        <div class="form-group">
-          <label for="messageContent">Sua mensagem:</label>
-          <textarea id="messageContent" name="messageContent" required maxlength="500" 
-                    placeholder="Compartilhe palavras de apoio, experiências ou mensagens positivas..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">Publicar Recado</button>
-      </form>
-    </div>
-
-    <!-- Mural de mensagens -->
-    <div class="messages-wall">
-      <div class="wall-header">
-        <h2>Mensagens da Comunidade</h2>
-        <p class="messages-count" id="messagesCount">0 mensagens publicadas</p>
-      </div>
-      
-      <div id="messagesContainer">
-        <div class="no-messages">
-          <p>Seja a primeira pessoa a deixar um recado! 💜</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    class MessageWall {
-      constructor() {
-        this.messages = this.loadMessages();
-        this.form = document.getElementById('messageForm');
-        this.container = document.getElementById('messagesContainer');
-        this.countElement = document.getElementById('messagesCount');
-        
-        this.init();
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
       }
 
-      init() {
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-        this.renderMessages();
-        this.updateCount();
+      .message-author {
+        font-family: "Cinzel", serif;
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 1.1rem;
       }
 
-      handleSubmit(e) {
-        e.preventDefault();
-        
-        const authorName = document.getElementById('authorName').value.trim();
-        const messageContent = document.getElementById('messageContent').value.trim();
-        
-        if (authorName && messageContent) {
-          const message = {
-            id: Date.now(),
-            author: authorName,
-            content: messageContent,
-            date: new Date().toLocaleString('pt-BR')
-          };
-          
-          this.addMessage(message);
-          this.form.reset();
-          
-          // Feedback visual
-          const btn = this.form.querySelector('.submit-btn');
-          const originalText = btn.textContent;
-          btn.textContent = 'Publicado! ✓';
-          btn.style.background = '#27ae60';
-          
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '#3498db';
-          }, 2000);
+      .message-date {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .message-content {
+        color: #555;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+
+      .no-messages {
+        text-align: center;
+        color: #7f8c8d;
+        font-style: italic;
+        padding: 40px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .page-header h1 {
+          font-size: 2rem;
+          color: var(--cor-secundaria)
+        }
+
+        .message-form {
+          padding: 20px;
+        }
+
+        .message-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
         }
       }
+    </style>
+  </head>
 
-      addMessage(message) {
-        this.messages.unshift(message); // Adiciona no início
-        this.saveMessages();
-        this.renderMessages();
-        this.updateCount();
-      }
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img src="../imgs/logopequeno.png" class="logo" />
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#sec2">Quem somos</a></li>
+            <li><a href="../index.html#sec1">Projeto</a></li>
+            <li><a href="../index.html#sec3">Colaboradores</a></li>
+            <li active><a href="indicacoes.html">Indicações</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-      renderMessages() {
-        if (this.messages.length === 0) {
-          this.container.innerHTML = `
+    <div class="main-content">
+      <div class="page-header">
+        <h1>Mural de Recados</h1>
+        <p>Compartilhe suas experiências, apoio e palavras de encorajamento</p>
+      </div>
+
+      <!-- Formulário para adicionar recado -->
+      <div class="message-form">
+        <h3
+          style="
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+          "
+        >
+          Deixe seu recado
+        </h3>
+        <form id="messageForm">
+          <div class="form-group">
+            <label for="authorName">Seu nome (ou apelido):</label>
+            <input
+              type="text"
+              id="authorName"
+              name="authorName"
+              required
+              maxlength="50"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="messageContent">Sua mensagem:</label>
+            <textarea
+              id="messageContent"
+              name="messageContent"
+              required
+              maxlength="500"
+              placeholder="Compartilhe palavras de apoio, experiências ou mensagens positivas..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Publicar Recado</button>
+        </form>
+      </div>
+
+      <!-- Mural de mensagens -->
+      <div class="messages-wall">
+        <div class="wall-header">
+          <h2>Mensagens da Comunidade</h2>
+          <p class="messages-count" id="messagesCount">
+            0 mensagens publicadas
+          </p>
+        </div>
+
+        <div id="messagesContainer">
+          <div class="no-messages">
+            <p>Seja a primeira pessoa a deixar um recado! 💜</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      class MessageWall {
+        constructor() {
+          this.messages = this.loadMessages();
+          this.form = document.getElementById("messageForm");
+          this.container = document.getElementById("messagesContainer");
+          this.countElement = document.getElementById("messagesCount");
+
+          this.init();
+        }
+
+        init() {
+          this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+          this.renderMessages();
+          this.updateCount();
+        }
+
+        handleSubmit(e) {
+          e.preventDefault();
+
+          const authorName = document.getElementById("authorName").value.trim();
+          const messageContent = document
+            .getElementById("messageContent")
+            .value.trim();
+
+          if (authorName && messageContent) {
+            const message = {
+              id: Date.now(),
+              author: authorName,
+              content: messageContent,
+              date: new Date().toLocaleString("pt-BR"),
+            };
+
+            this.addMessage(message);
+            this.form.reset();
+
+            // Feedback visual
+            const btn = this.form.querySelector(".submit-btn");
+            const originalText = btn.textContent;
+            btn.textContent = "Publicado! ✓";
+            btn.style.background = "#27ae60";
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = "#3498db";
+            }, 2000);
+          }
+        }
+
+        addMessage(message) {
+          this.messages.unshift(message); // Adiciona no início
+          this.saveMessages();
+          this.renderMessages();
+          this.updateCount();
+        }
+
+        renderMessages() {
+          if (this.messages.length === 0) {
+            this.container.innerHTML = `
             <div class="no-messages">
               <p>Seja a primeira pessoa a deixar um recado! 💜</p>
             </div>
           `;
-          return;
-        }
+            return;
+          }
 
-        this.container.innerHTML = this.messages.map(message => `
+          this.container.innerHTML = this.messages
+            .map(
+              (message) => `
           <div class="message-card">
             <div class="message-header">
-              <span class="message-author">${this.escapeHtml(message.author)}</span>
+              <span class="message-author">${this.escapeHtml(
+                message.author
+              )}</span>
               <span class="message-date">${message.date}</span>
             </div>
-            <div class="message-content">${this.escapeHtml(message.content)}</div>
+            <div class="message-content">${this.escapeHtml(
+              message.content
+            )}</div>
           </div>
-        `).join('');
-      }
-
-      updateCount() {
-        const count = this.messages.length;
-        this.countElement.textContent = count === 1 ? '1 mensagem publicada' : `${count} mensagens publicadas`;
-      }
-
-      loadMessages() {
-        const stored = localStorage.getItem('speakOutSafe_messages');
-        return stored ? JSON.parse(stored) : [];
-      }
-
-      saveMessages() {
-        localStorage.setItem('speakOutSafe_messages', JSON.stringify(this.messages));
-      }
-
-      escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-      }
-    }
-
-    // Inicializar quando a página carregar
-    document.addEventListener('DOMContentLoaded', () => {
-      new MessageWall();
-    });
-
-    // Adicionar algumas mensagens de exemplo (apenas na primeira visita)
-    if (!localStorage.getItem('speakOutSafe_messages')) {
-      const exampleMessages = [
-        {
-          id: 1,
-          author: 'Ana Silva',
-          content: 'Este projeto me deu força para falar sobre minha experiência. Obrigada por criarem este espaço seguro! 💜',
-          date: new Date(Date.now() - 86400000).toLocaleString('pt-BR') // 1 dia atrás
-        },
-        {
-          id: 2,
-          author: 'Mariana',
-          content: 'Que iniciativa incrível! É muito importante termos espaços onde podemos nos expressar sem medo. Parabéns!',
-          date: new Date(Date.now() - 172800000).toLocaleString('pt-BR') // 2 dias atrás
+        `
+            )
+            .join("");
         }
-      ];
-      localStorage.setItem('speakOutSafe_messages', JSON.stringify(exampleMessages));
-    }
-  </script>
-</body>
+
+        updateCount() {
+          const count = this.messages.length;
+          this.countElement.textContent =
+            count === 1
+              ? "1 mensagem publicada"
+              : `${count} mensagens publicadas`;
+        }
+
+        loadMessages() {
+          const stored = localStorage.getItem("speakOutSafe_messages");
+          return stored ? JSON.parse(stored) : [];
+        }
+
+        saveMessages() {
+          localStorage.setItem(
+            "speakOutSafe_messages",
+            JSON.stringify(this.messages)
+          );
+        }
+
+        escapeHtml(text) {
+          const div = document.createElement("div");
+          div.textContent = text;
+          return div.innerHTML;
+        }
+      }
+
+      // Inicializar quando a página carregar
+      document.addEventListener("DOMContentLoaded", () => {
+        new MessageWall();
+      });
+
+      // Adicionar algumas mensagens de exemplo (apenas na primeira visita)
+      if (!localStorage.getItem("speakOutSafe_messages")) {
+        const exampleMessages = [
+          {
+            id: 1,
+            author: "Ana Silva",
+            content:
+              "Este projeto me deu força para falar sobre minha experiência. Obrigada por criarem este espaço seguro! 💜",
+            date: new Date(Date.now() - 86400000).toLocaleString("pt-BR"), // 1 dia atrás
+          },
+          {
+            id: 2,
+            author: "Mariana",
+            content:
+              "Que iniciativa incrível! É muito importante termos espaços onde podemos nos expressar sem medo. Parabéns!",
+            date: new Date(Date.now() - 172800000).toLocaleString("pt-BR"), // 2 dias atrás
+          },
+        ];
+        localStorage.setItem(
+          "speakOutSafe_messages",
+          JSON.stringify(exampleMessages)
+        );
+      }
+    </script>
+  </body>
 </html>

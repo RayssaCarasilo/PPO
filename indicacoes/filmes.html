@@ -1,375 +1,534 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <title>Galeria de Filmes</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-  <title>Galeria de Filmes</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      :root {
+        --cor-primaria: #44145a;
+        --cor-secundaria: #ece8ee;
+        --cor-terciaria: #ae91bb;
+      }
 
-    body {
-      font-family: 'Old Standard TT', serif;
-      background-color: #f8f9fa;
-    }
+      body {
+        font-family: "Old Standard TT", serif;
+        background-color: var(--cor-terciaria);
+      }
 
-    /* Navbar styles */
-    .container {
-      padding: 0 20px;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+      /* Navbar styles */
+      .container {
+        padding: 0 20px;
+        background: var(--cor-primaria);
+      }
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-    }
-
-    .logo {
-      height: 50px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #3498db;
-    }
-
-    nav ul li[active] a {
-      color: #3498db;
-      border-bottom: 2px solid #3498db;
-    }
-
-    /* Gallery styles */
-    .main-content {
-      padding: 40px 20px;
-    }
-
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .gallery-header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    .gallery-header p {
-      color: #7f8c8d;
-      font-size: 1.2rem;
-    }
-
-    .search-bar {
-      max-width: 500px;
-      margin: 0 auto 40px;
-      position: relative;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 15px 20px;
-      font-size: 16px;
-      border: 2px solid #ddd;
-      border-radius: 25px;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .search-bar input:focus {
-      border-color: #3498db;
-    }
-
-    .gallery-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .movie-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .movie-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-
-    .movie-image {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .movie-card:hover .movie-image {
-      transform: scale(1.05);
-    }
-
-    .movie-info {
-      padding: 20px;
-    }
-
-    .movie-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: #2c3e50;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .movie-year {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-      margin-bottom: 5px;
-    }
-
-    .movie-director {
-      color: #7f8c8d;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
-    .movie-genre {
-      background: #3498db;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-
-    .movie-description {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .movie-rating {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .stars {
-      color: #f39c12;
-      margin-right: 8px;
-    }
-
-    .rating-text {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        gap: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 6%;
       }
 
       nav ul {
-        gap: 15px;
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cor-secundaria);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem; 
+        margin: 1.5em;
+      }
+
+      nav ul li a:hover {
+        color: #f1c40f;
+      }
+
+      nav ul li[active] a {
+        color: #f1c40f;
+      }
+
+      /* Gallery styles */
+      .main-content {
+        padding: 40px 20px;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .gallery-header h1 {
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      .gallery-header p {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+      }
+
+      .search-bar {
+        max-width: 500px;
+        margin: 0 auto 40px;
+        position: relative;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 25px;
+        outline: none;
+        transition: border-color 0.3s;
+        margin-top: 10%;
+      }
+
+      .search-bar input:focus {
+        border-color: #3498db;
+      }
+
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        padding: 20px 0;
       }
-      
-      .gallery-header h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="container">
-      <div class="navbar"> 
-        <img src="../imgs/logopequeno.png" class="logo">
+      .series-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .series-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .series-image {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .series-card:hover .series-image {
+        transform: scale(1.05);
+      }
+
+      .series-info {
+        padding: 25px;
+      }
+
+      .series-title {
+        font-family: "Cinzel", serif;
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .series-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .series-year {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .series-seasons {
+        background: #e74c3c;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .series-creator {
+        color: #7f8c8d;
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      .series-genre {
+        background: #9b59b6;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+
+      .series-network {
+        background: #34495e;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        margin-left: 8px;
+        display: inline-block;
+      }
+
+      .series-description {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+
+      .series-rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .rating-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .stars {
+        color: #f39c12;
+        margin-right: 8px;
+      }
+
+      .rating-text {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .series-status {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      .status-ongoing {
+        background: #27ae60;
+        color: white;
+      }
+
+      .status-ended {
+        background: #95a5a6;
+        color: white;
+      }
+
+      .status-upcoming {
+        background: #f39c12;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 20px;
+        }
+
+        .gallery-header h1 {
+          font-size: 2rem;
+        }
+
+        .series-details {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img src="../imgs/logopequeno.png" class="logo" />
         <nav>
           <ul>
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#sec3">Quem somos</a></li>
-            <li><a href="index.html">Projeto</a></li>
-            <li><a href="index.html">Colaboradores</a></li>
+            <li><a href="../index.html#sec2">Quem somos</a></li>
+            <li><a href="../index.html#sec1">Projeto</a></li>
+            <li><a href="../index.html#sec3">Colaboradores</a></li>
             <li active><a href="indicacoes.html">Indicações</a></li>
           </ul>
         </nav>
       </div>
     </div>
-  <div class="gallery-header">
-    <h1>Cinema & Empoderamento</h1>
-    <p>Filmes que inspiram e transformam perspectivas</p>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Buscar filmes, diretores, gêneros...">
-  </div>
-
-  <div class="gallery-container">
-    <div class="gallery-grid">
-      
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=11" alt="Filme 1" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Mulheres Pequenas</h3>
-          <p class="movie-year">2019</p>
-          <p class="movie-director">Dir. Greta Gerwig</p>
-          <span class="movie-genre">Drama</span>
-          <p class="movie-description">Adaptação do clássico romance sobre quatro irmãs em busca de seus sonhos e independência na América do século XIX...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-text">4.6 (1.2k avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=12" alt="Filme 2" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Estrelas Além do Tempo</h3>
-          <p class="movie-year">2016</p>
-          <p class="movie-director">Dir. Theodore Melfi</p>
-          <span class="movie-genre">Biografia</span>
-          <p class="movie-description">A história inspiradora das matemáticas afro-americanas que ajudaram a NASA a vencer a corrida espacial...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-text">4.7 (2.1k avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=13" alt="Filme 3" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Lady Bird</h3>
-          <p class="movie-year">2017</p>
-          <p class="movie-director">Dir. Greta Gerwig</p>
-          <span class="movie-genre">Coming-of-age</span>
-          <p class="movie-description">Uma adolescente rebelde navega por seu último ano no ensino médio, relacionamentos e sonhos de liberdade...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.3 (956 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=14" alt="Filme 4" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Frida</h3>
-          <p class="movie-year">2002</p>
-          <p class="movie-director">Dir. Julie Taymor</p>
-          <span class="movie-genre">Biografia</span>
-          <p class="movie-description">A vida tumultuada e apaixonada da artista mexicana Frida Kahlo e sua relação com Diego Rivera...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.4 (1.8k avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=15" alt="Filme 5" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">Malala</h3>
-          <p class="movie-year">2015</p>
-          <p class="movie-director">Dir. Davis Guggenheim</p>
-          <span class="movie-genre">Documentário</span>
-          <p class="movie-description">Documentário sobre a jovem ativista paquistanesa que luta pelo direito à educação das meninas...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-text">4.8 (745 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img src="https://picsum.photos/300/450?random=16" alt="Filme 6" class="movie-image">
-        <div class="movie-info">
-          <h3 class="movie-title">As Sufragistas</h3>
-          <p class="movie-year">2015</p>
-          <p class="movie-director">Dir. Sarah Gavron</p>
-          <span class="movie-genre">Drama Histórico</span>
-          <p class="movie-description">A luta das mulheres britânicas pelo direito ao voto no início do século XX...</p>
-          <div class="movie-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.2 (1.3k avaliações)</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="gallery-header">
+      <h1>Filmes de conforto</h1>
     </div>
-  </div>
 
-  <script>
-    // Adicionar funcionalidade de busca
-    const searchInput = document.querySelector('.search-bar input');
-    const movieCards = document.querySelectorAll('.movie-card');
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar filmes, personagens, atores..." />
+    </div>
 
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase();
-      
-      movieCards.forEach(card => {
-        const title = card.querySelector('.movie-title').textContent.toLowerCase();
-        const director = card.querySelector('.movie-director').textContent.toLowerCase();
-        const genre = card.querySelector('.movie-genre').textContent.toLowerCase();
-        
-        if (title.includes(searchTerm) || director.includes(searchTerm) || genre.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+    <div class="gallery-container">
+      <div class="gallery-grid">
+        <div class="series-card">
+          <img
+            src="filmes/barbie.jpg"
+            alt="Barbie"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Barbie</h3>
+            <div class="series-details">
+              <span class="series-year">2023</span>
+            </div>
+            <p class="series-creator">Greta Gerwig</p>
+            <span class="series-genre">Comédia</span>
+            <p class="series-description">
+              No fabuloso live-action da boneca mais famosa do mundo, acompanhamos o dia a dia em Barbieland
+               - o mundo mágico das Barbies, onde todas as versões da boneca vivem em completa harmonia 
+               e suas únicas preocupações são encontrar as melhores roupas para passear com as amigas e
+                curtir intermináveis festas. Porém, uma das bonecas (interpretada por Margot Robbie) 
+                começa a perceber que talvez sua vida não seja tão perfeita assim, questionando-se sobre
+                 o sentido de sua existência e alarmando suas companheiras. Logo, sua vida no mundo 
+                 cor-de-rosa começa a mudar e, eventualmente, ela sai de Barbieland.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="filmes/estrelasalemdotempo.jpg"
+            alt="Estrelas Além do Tempo"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Estrelas Além do Tempo</h3>
+            <div class="series-details">
+              <span class="series-year">2016</span>
+            </div>
+            <p class="series-creator">Theodore Melfi</p>
+            <span class="series-genre">Ficção histórica</span>
+            <p class="series-description">
+              A obra conta a história de três mulheres negras que trabalham como 
+              calculadoras da NASA, durante a guerra entre Rússia e Estados Unidos, 
+              com o objetivo de chegar ao espaço. Seus nomes? Katherine Goble 
+              (Taraji P. Henson), Mary Jackson (Janelle Monáe) e Dorothy Vaughn (Octavia Spencer)
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       <div class="series-card">
+          <img
+            src="filmes/legalmenteloira.jpg"
+            alt="Legalmente Loira"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Legalmente Loira</h3>
+            <div class="series-details">
+              <span class="series-year">2001</span>
+            </div>
+            <p class="series-creator">Robert Luketic</p>
+            <span class="series-genre">Comédia</span>
+            <p class="series-description">
+              Ela é uma garota de irmandade que faria de tudo para ficar com o 
+              namorado. Até mesmo entrar para o curso de direito! Estrelando Reese 
+              Witherspoon, Luke Wilson, Selma Blair e Victor Garber. Uma comédia que combina com diversão.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="series-card">
+          <img
+            src="filmes/mulan.jpg"
+            alt="Mulan"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Mulan</h3>
+            <div class="series-details">
+              <span class="series-year">1998</span>
+            </div>
+            <p class="series-creator">Tony Bancroft</p>
+            <span class="series-genre">Animação</span>
+            <p class="series-description">
+             Uma jovem chinesa fica sabendo que o 
+             exército está recrutando soldados. Por ser filha única, a moça 
+             se preocupa que seu pai, já idoso e com a saúde debilitada, tenha que ir 
+             para a guerra. Por isso, decide combater escondida de sua família — e 
+             fingindo ser um homem.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="filmes/mulhermaravilha.webp"
+            alt="Mulher Maravilha"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Mulher Maravilha</h3>
+            <div class="series-details">
+              <span class="series-year">2017</span>
+            </div>
+            <p class="series-creator">Patty Jenkins</p>
+            <span class="series-genre">Ação</span>
+            <p class="series-description">
+              Treinada desde cedo para ser uma guerreira imbatível, 
+              Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida 
+              como princesa das Amazonas. Quando o piloto Steve Trevor sofre um 
+              acidente e cai em uma praia do local, ela descobre que uma guerra 
+              sem precedentes está se espalhando pelo mundo e decide deixar seu 
+              lar certa de que pode parar o conflito. 
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="filmes/quehoraselavolta.jpg"
+            alt="Que Horas Ela Volta?"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Que Horas Ela Volta?</h3>
+            <div class="series-details">
+              <span class="series-year">2015</span>
+            </div>
+            <p class="series-creator">Anna Muylaert</p>
+            <span class="series-genre">Comédia/Drama</span>
+            <p class="series-description">
+              Val deixa a filha, Jéssica, no interior de Pernambuco e 
+              passa os 13 anos seguintes trabalhando como babá do menino 
+              Fabinho em São Paulo. Ela consegue estabilidade financeira, 
+              mas convive com a culpa por não ter criado sua filha.
+            </p>
+            <div class="series-rating">
+              <div class="rating-left">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8 (3.2k)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      // Adicionar funcionalidade de busca
+      const searchInput = document.querySelector(".search-bar input");
+      const seriesCards = document.querySelectorAll(".series-card");
+
+      searchInput.addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase();
+
+        seriesCards.forEach((card) => {
+          const title = card
+            .querySelector(".series-title")
+            .textContent.toLowerCase();
+          const creator = card
+            .querySelector(".series-creator")
+            .textContent.toLowerCase();
+          const genre = card
+            .querySelector(".series-genre")
+            .textContent.toLowerCase();
+          const network = card
+            .querySelector(".series-network")
+            .textContent.toLowerCase();
+
+          if (
+            title.includes(searchTerm) ||
+            creator.includes(searchTerm) ||
+            genre.includes(searchTerm) ||
+            network.includes(searchTerm)
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
       });
-    });
 
-    movieCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.querySelector('.movie-title').textContent;
-        alert(`Você clicou em: ${title}`);
+      seriesCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const title = this.querySelector(".series-title").textContent;
+          alert(`Você clicou em: ${title}`);
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
+

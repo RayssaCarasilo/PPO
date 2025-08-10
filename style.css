@@ -101,18 +101,17 @@ nav {
     font-family: "Bebas Neue", sans-serif;
     font-size: 1.5rem;
     transition: color 0.3s;
-    padding: 8px 12px;         /* Área clicável maior */
-    border-radius: 5px;
+    padding: 8px 12px;        
+  
 }
 
 .nav-list li a:hover {
-    color: #f1c40f;            /* Cor de hover consistente */
+    color: #f1c40f;          
 }
 
 .nav-list li[active] a {
     color: #f1c40f;
-    border-bottom: 2px solid #f1c40f;
-}
+} 
 
 /* Botão hambúrguer para mobile */
 .nav-toggle {
