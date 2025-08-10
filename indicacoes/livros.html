@@ -1,345 +1,479 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <title>Galeria de Livros</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-  <title>Galeria de Livros</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Old+Standard+TT:ital@1&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      :root {
+        --cor-primaria: #44145a;
+        --cor-secundaria: #ece8ee;
+        --cor-terciaria: #ae91bb;
+      }
 
-    body {
-      font-family: 'Old Standard TT', serif;
-      background-color: #f8f9fa;
-    }
+      body {
+        font-family: "Old Standard TT", serif;
+        background-color: var(--cor-terciaria);
+      }
 
-    /* Navbar styles */
-    .container {
-      padding: 0 20px;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+      /* Navbar styles */
+      .container {
+        padding: 0 20px;
+        background: var(--cor-primaria);
+      }
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-    }
-
-    .logo {
-      height: 50px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #3498db;
-    }
-
-    nav ul li[active] a {
-      color: #3498db;
-      border-bottom: 2px solid #3498db;
-    }
-
-    /* Gallery styles */
-    .main-content {
-      padding: 40px 20px;
-    }
-
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .gallery-header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-
-    .gallery-header p {
-      color: #7f8c8d;
-      font-size: 1.2rem;
-    }
-
-    .search-bar {
-      max-width: 500px;
-      margin: 0 auto 40px;
-      position: relative;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 15px 20px;
-      font-size: 16px;
-      border: 2px solid #ddd;
-      border-radius: 25px;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .search-bar input:focus {
-      border-color: #3498db;
-    }
-
-    .gallery-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .book-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .book-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-
-    .book-image {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .book-card:hover .book-image {
-      transform: scale(1.05);
-    }
-
-    .book-info {
-      padding: 20px;
-    }
-
-    .book-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: #2c3e50;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .book-author {
-      color: #7f8c8d;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
-    .book-description {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .book-rating {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .stars {
-      color: #f39c12;
-      margin-right: 8px;
-    }
-
-    .rating-text {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        gap: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 6%;
       }
 
       nav ul {
-        gap: 15px;
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--cor-secundaria);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem; 
+        margin: 1.5em;
+      }
+
+      nav ul li a:hover {
+        color: #f1c40f;
+      }
+
+      nav ul li[active] a {
+        color: #f1c40f;
+      }
+
+      /* Gallery styles */
+      .main-content {
+        padding: 40px 20px;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .gallery-header h1 {
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      .gallery-header p {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+      }
+
+      .search-bar {
+        max-width: 500px;
+        margin: 0 auto 40px;
+        position: relative;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 25px;
+        outline: none;
+        transition: border-color 0.3s;
+        margin-top: 10%;
+      }
+
+      .search-bar input:focus {
+        border-color: #3498db;
+      }
+
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        padding: 20px 0;
       }
-      
-      .gallery-header h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="container">
-      <div class="navbar"> 
-        <img src="imgs/logopequeno.png" class="logo">
+      .series-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .series-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .series-image {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .series-card:hover .series-image {
+        transform: scale(1.05);
+      }
+
+      .series-info {
+        padding: 25px;
+      }
+
+      .series-title {
+        font-family: "Cinzel", serif;
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .series-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .series-year {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .series-seasons {
+        background: #e74c3c;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .series-creator {
+        color: #7f8c8d;
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      .series-genre {
+        background: #9b59b6;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+
+      .series-network {
+        background: #34495e;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        margin-left: 8px;
+        display: inline-block;
+      }
+
+      .series-description {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+
+      .series-rating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .rating-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .stars {
+        color: #f39c12;
+        margin-right: 8px;
+      }
+
+      .rating-text {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      .series-status {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      .status-ongoing {
+        background: #27ae60;
+        color: white;
+      }
+
+      .status-ended {
+        background: #95a5a6;
+        color: white;
+      }
+
+      .status-upcoming {
+        background: #f39c12;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 20px;
+        }
+
+        .gallery-header h1 {
+          font-size: 2rem;
+        }
+
+        .series-details {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img src="../imgs/logopequeno.png" class="logo" />
         <nav>
           <ul>
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#sec3">Quem somos</a></li>
-            <li><a href="index.html">Projeto</a></li>
-            <li><a href="index.html">Colaboradores</a></li>
+            <li><a href="../index.html#sec2">Quem somos</a></li>
+            <li><a href="../index.html#sec1">Projeto</a></li>
+            <li><a href="../index.html#sec3">Colaboradores</a></li>
             <li active><a href="indicacoes.html">Indicações</a></li>
           </ul>
         </nav>
       </div>
     </div>
-  <div class="gallery-header">
-    <h1>Biblioteca Digital</h1>
-    <p>Descubra sua próxima leitura favorita</p>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Buscar livros, autores, gêneros...">
-  </div>
-
-  <div class="gallery-container">
-    <div class="gallery-grid">
-      
-      <div class="book-card">
-        <img src="https://picsum.photos/300/450?random=1" alt="Livro 1" class="book-image">
-        <div class="book-info">
-          <h3 class="book-title">Dom Casmurro</h3>
-          <p class="book-author">Machado de Assis</p>
-          <p class="book-description">Um dos maiores clássicos da literatura brasileira, narrando a história de Bentinho e sua obsessão por Capitu...</p>
-          <div class="book-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-text">4.5 (320 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <img src="https://picsum.photos/300/500?random=2" alt="Livro 2" class="book-image">
-        <div class="book-info">
-          <h3 class="book-title">O Cortiço</h3>
-          <p class="book-author">Aluísio Azevedo</p>
-          <p class="book-description">Romance naturalista que retrata a vida em um cortiço no Rio de Janeiro do século XIX...</p>
-          <div class="book-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.2 (185 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <img src="https://picsum.photos/300/420?random=3" alt="Livro 3" class="book-image">
-        <div class="book-info">
-          <h3 class="book-title">Iracema</h3>
-          <p class="book-author">José de Alencar</p>
-          <p class="book-description">Lenda do Ceará que narra o amor entre a índia Iracema e o português Martim...</p>
-          <div class="book-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.0 (265 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <img src="https://picsum.photos/300/480?random=4" alt="Livro 4" class="book-image">
-        <div class="book-info">
-          <h3 class="book-title">O Guarani</h3>
-          <p class="book-author">José de Alencar</p>
-          <p class="book-description">Romance indianista que conta a história de amor entre Peri e Ceci...</p>
-          <div class="book-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.1 (198 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <img src="https://picsum.photos/300/460?random=5" alt="Livro 5" class="book-image">
-        <div class="book-info">
-          <h3 class="book-title">Senhora</h3>
-          <p class="book-author">José de Alencar</p>
-          <p class="book-description">Romance urbano que aborda temas como dinheiro, amor e sociedade no século XIX...</p>
-          <div class="book-rating">
-            <span class="stars">★★★★☆</span>
-            <span class="rating-text">4.3 (142 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card">
-        <img src="https://picsum.photos/300/440?random=6" alt="Livro 6" class="book-image">
-        <div class="book-info">
-          <h3 class="book-title">Memórias Póstumas de Brás Cubas</h3>
-          <p class="book-author">Machado de Assis</p>
-          <p class="book-description">Narrado por um defunto autor, este romance revolucionou a literatura brasileira...</p>
-          <div class="book-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-text">4.6 (401 avaliações)</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="gallery-header">
+      <h1>Livros de conforto</h1>
     </div>
-  </div>
 
-  <script>
-    // Adicionar funcionalidade de busca
-    const searchInput = document.querySelector('.search-bar input');
-    const bookCards = document.querySelectorAll('.book-card');
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar livros, autores, personagens..." />
+    </div>
 
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase();
-      
-      bookCards.forEach(card => {
-        const title = card.querySelector('.book-title').textContent.toLowerCase();
-        const author = card.querySelector('.book-author').textContent.toLowerCase();
-        
-        if (title.includes(searchTerm) || author.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+    <div class="gallery-container">
+      <div class="gallery-grid">
+        <div class="series-card">
+          <img
+            src="livros/catperson.jpg"
+            alt="Cat Person"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Cat Person</h3>
+            <p class="series-creator">Kristen Roupenian</p>
+            <span class="series-genre">Romance</span>
+            <p class="series-description">
+              Ao longo de doze histórias, com tom ora sombrio, ora hilariante, a escritora 
+              explora com sensibilidade aguda e imaginação selvagem a realidade contemporânea com 
+              tintas por vezes absurdas ― e até mesmo assustadoras. Esta reunião de contos apresenta 
+              uma galeria de personagens profundamente humanos e, por isso mesmo, estranhamente 
+              inquietantes, que buscam se relacionar em dias marcados por angústias, contradições, 
+              perversões e uma dificuldade intransponível de comunicação.
+            </p>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="livros/hibiscoroxo.jpeg"
+            alt="Hibisco Roxo"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Hibisco Roxo</h3>
+            <p class="series-creator">Chimamanda Ngozi Adichie</p>
+            <span class="series-genre">Romance</span>
+            <p class="series-description">
+              “Uma história sensível e delicada sobre uma jovem exposta à 
+              intolerância religiosa e ao lado obscuro da sociedade nigeriana.”
+            </p>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="livros/malala.webp"
+            alt="Malala"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Malala</h3>
+            <p class="series-creator">Malala Yousafzai</p>
+            <span class="series-genre">Biografia</span>
+            <p class="series-description">
+             Ela fez das palavras sua arma. Em 9 de outubro de 
+             2012, quando voltava de ônibus da escola, sofreu um atentado a tiro. 
+             Poucos acreditaram que ela sobreviveria. A jornalista Adriana Carranca visitou 
+             o vale do Swat dias depois do atentado, hospedou-se com uma família local e 
+             conta neste livro tudo o que viu e aprendeu por lá. Ela apresenta às crianças 
+             a história real dessa menina que, além de ser a mais jovem ganhadora do prêmio 
+             Nobel da paz, é um grande exemplo de como uma pessoa e um sonho podem mudar o mundo.
+            </p>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="livros/moxie.jpg"
+            alt="Moxie"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Moxie</h3>
+            <p class="series-creator">Jennifer Mathieu</p>
+            <span class="series-genre">Romance</span>
+            <p class="series-description">
+             Cansada das regras de vestuário machistas, do assédio nos 
+             corredores e dos comentários babacas dos caras durante a aula. 
+             Mas, acima de tudo, Viv está cansada de sempre seguir as regras. 
+             A mãe de Viv era dura na queda, integrante das Riot Grrrls nos anos 90. 
+             Inspirada por essas histórias, Viv pega uma página do passado da mãe e cria 
+             um fanzine feminista que distribui anonimamente para as colegas da escola
+            </p>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="livros/ossetemaridosdeevelynhugo.jpg"
+            alt="Os Sete Maridos de Evelyn Hugo"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">Os Sete Maridos de Evelyn Hugo</h3>
+            <p class="series-creator">Taylor Jenkins Reid</p>
+            <span class="series-genre">Romance</span>
+            <p class="series-description">
+              Lendária estrela de Hollywood, Evelyn Hugo sempre esteve sob os holofotes ― 
+              seja estrelando uma produção vencedora do Oscar, protagonizando algum escândalo 
+              ou aparecendo com um novo marido… pela sétima vez. Agora, prestes a completar 
+              oitenta anos e reclusa em seu apartamento no Upper East Side, a famigerada atriz 
+              decide contar a própria história ― ou sua “verdadeira história”
+            </p>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <img
+            src="livros/osveraoqe.jpg"
+            alt="O Verão Que Mudou Minha Vida"
+            class="series-image"
+          />
+          <div class="series-info">
+            <h3 class="series-title">O Verão Que Mudou Minha Vida</h3>
+            <p class="series-creator">Jenny Han</p>
+            <span class="series-genre">Romance</span>
+            <p class="series-description">
+              Sempre que chegam as férias de verão, Isabel Conklin deixa para trás 
+              sua vida monótona na cidade e vai com a família para Cousins Beach. 
+              A casa de praia é seu segundo lar, e é lá que Belly reencontra as pessoas que 
+              mais ama: a melhor amiga de sua mãe, Susannah, e os filhos dela, Conrad e Jeremiah.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Adicionar funcionalidade de busca
+      const searchInput = document.querySelector(".search-bar input");
+      const seriesCards = document.querySelectorAll(".series-card");
+
+      searchInput.addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase();
+
+        seriesCards.forEach((card) => {
+          const title = card
+            .querySelector(".series-title")
+            .textContent.toLowerCase();
+          const creator = card
+            .querySelector(".series-creator")
+            .textContent.toLowerCase();
+          const genre = card
+            .querySelector(".series-genre")
+            .textContent.toLowerCase();
+          const network = card
+            .querySelector(".series-network")
+            .textContent.toLowerCase();
+
+          if (
+            title.includes(searchTerm) ||
+            creator.includes(searchTerm) ||
+            genre.includes(searchTerm) ||
+            network.includes(searchTerm)
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
       });
-    });
-    bookCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.querySelector('.book-title').textContent;
-        alert(`Você clicou em: ${title}`);
+
+      seriesCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const title = this.querySelector(".series-title").textContent;
+          alert(`Você clicou em: ${title}`);
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
